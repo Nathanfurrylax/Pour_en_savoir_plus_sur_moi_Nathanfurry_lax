@@ -1,0 +1,78 @@
+/* galerie.css — slider dans les cartes, grille au clic, flou NSFW, vue en grand.
+   Utilise les variables de ton site (--pink, --cyan, --card, --text). */
+
+/* ── Slider dans la carte ── */
+.char-media{position:relative;height:clamp(100px,20vw,140px);overflow:hidden;cursor:zoom-in}
+.char-media:focus-visible{outline:2px solid var(--pink);outline-offset:-2px}
+.slide{
+  position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;
+  opacity:0;transform:scale(1);
+  transition:opacity .8s ease,transform 7s linear;
+}
+.slide.on{opacity:1;transform:scale(1.08)}
+.dots{position:absolute;left:0;right:0;bottom:6px;display:flex;gap:4px;justify-content:center;pointer-events:none}
+.dots i{width:14px;height:3px;border-radius:2px;background:rgba(255,255,255,.35);transition:background .3s,width .3s}
+.dots i.on{background:var(--pink);width:22px}
+.count{
+  position:absolute;top:6px;right:6px;padding:.1rem .45rem;border-radius:20px;
+  font-size:.62rem;font-weight:700;color:#fff;background:rgba(7,7,26,.65);
+  border:1px solid rgba(232,121,249,.4);backdrop-filter:blur(4px);pointer-events:none;
+}
+
+/* ── Fenêtre « grille » (nom + Wikipédia + vignettes) ── */
+.gallery{
+  margin:auto;padding:0;width:min(900px,94vw);max-height:88vh;overflow:hidden;
+  background:var(--card);color:var(--text);
+  border:1px solid rgba(168,85,247,.4);border-radius:1rem;
+}
+.gallery[open]{animation:pop .25s ease-out}
+.gallery::backdrop{background:rgba(7,7,26,.82);backdrop-filter:blur(6px)}
+.g-head{display:flex;align-items:center;gap:.75rem;padding:.8rem 1rem;border-bottom:1px solid rgba(168,85,247,.2)}
+.g-title{font-weight:900;letter-spacing:2px;color:var(--pink);margin-right:auto}
+.g-wiki{
+  font-size:.72rem;font-weight:700;letter-spacing:1px;color:var(--cyan);text-decoration:none;
+  padding:.3rem .8rem;border-radius:30px;border:1px solid rgba(34,211,238,.4);background:rgba(34,211,238,.08);
+  transition:background .2s;
+}
+.g-wiki:hover{background:rgba(34,211,238,.2)}
+.g-wiki[hidden]{display:none}
+.g-close,.v-btn{
+  background:rgba(7,7,26,.6);border:1px solid rgba(168,85,247,.45);color:var(--text);
+  width:2rem;height:2rem;border-radius:50%;font-size:1rem;cursor:pointer;
+}
+.g-close:hover,.v-btn:hover{background:rgba(168,85,247,.25)}
+.g-grid{
+  display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:.5rem;
+  padding:1rem;overflow:auto;max-height:calc(88vh - 56px);
+}
+.thumb{
+  position:relative;aspect-ratio:1;padding:0;border:0;background:none;
+  border-radius:.5rem;overflow:hidden;cursor:zoom-in;
+  animation:thumb .35s ease-out backwards;animation-delay:calc(var(--n) * 60ms);
+}
+.thumb:focus-visible{outline:2px solid var(--pink)}
+.thumb img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .3s}
+.thumb:hover img{transform:scale(1.05)}
+.thumb[data-nsfw] img{filter:blur(14px);transform:scale(1.2)}   /* effet flou NSFW */
+.thumb[data-nsfw]::after{
+  content:"18+";position:absolute;inset:0;display:grid;place-items:center;
+  font-size:.8rem;font-weight:900;letter-spacing:2px;color:#fff;text-shadow:0 1px 6px #000;
+}
+
+/* ── Vue grand format ── */
+.viewer{margin:auto;padding:0;border:0;background:transparent;max-width:96vw;max-height:94vh;overflow:visible}
+.viewer[open]{animation:pop .2s ease-out}
+.viewer::backdrop{background:rgba(7,7,26,.93)}
+.viewer img{display:block;max-width:96vw;max-height:92vh;object-fit:contain;border-radius:.6rem;cursor:zoom-out}
+.v-btn{position:fixed;top:50%;transform:translateY(-50%);width:2.6rem;height:2.6rem;font-size:1.3rem}
+.v-prev{left:.75rem}.v-next{right:.75rem}
+.v-btn[hidden]{display:none}
+
+body:has(dialog[open]){overflow:hidden}
+@keyframes pop{from{opacity:0;transform:scale(.96) translateY(8px)}}
+@keyframes thumb{from{opacity:0;transform:scale(.9)}}
+
+@media(prefers-reduced-motion:reduce){
+  .slide{transition:opacity .01s;transform:none!important}
+  .gallery[open],.viewer[open],.thumb{animation:none}
+}
