@@ -1,1 +1,21 @@
-[]
+[
+  {
+    "name": "Hatsune Miku",
+    "source": "Vocaloid",
+    "wiki": "https://fr.wikipedia.org/wiki/Hatsune_Miku",
+    "images": [
+      {
+        "src": "/images/Hatsune_miku_SFW_00.png",
+        "nsfw": false
+      },
+      {
+        "src": "/images/Hatsune_miku_SFW_01.png",
+        "nsfw": false
+      },
+      {
+        "src": "/images/Hatsune_miku_SFW_02.png",
+        "nsfw": false
+      }
+    ]
+  }
+]
