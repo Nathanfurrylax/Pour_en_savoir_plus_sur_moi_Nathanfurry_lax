@@ -1,0 +1,58 @@
+# À renommer en ".pages.yml" (avec le point) et à placer à la racine du dépôt GitHub.
+
+media:
+  input: images
+  output: /images
+
+content:
+  # ── Les univers / sources (un par bloc coloré sur le site) ──
+  - name: sources
+    label: Sources
+    type: file
+    path: data/sources.json
+    format: json
+    list: true
+    fields:
+      - name: name
+        label: Nom de la source
+        type: string
+        required: true
+      - name: color
+        label: Couleur
+        type: string
+        description: "Code hexadécimal à 6 caractères, par exemple #60a5fa"
+
+  # ── Les personnages ──
+  - name: personnages
+    label: Personnages
+    type: file
+    path: data/personnages.json
+    format: json
+    list: true
+    fields:
+      - name: name
+        label: Nom du personnage
+        type: string
+        required: true
+      - name: source
+        label: Source
+        type: string
+        description: "Doit être écrit exactement comme dans la liste des sources"
+        required: true
+      - name: wiki
+        label: Lien Wikipédia
+        type: string
+        description: "Adresse complète (https://…). Laisse vide s'il n'y a pas de page."
+      - name: images
+        label: Images
+        type: object
+        list: true
+        fields:
+          - name: src
+            label: Image
+            type: image
+            required: true
+          - name: nsfw
+            label: NSFW (flouter dans la grille)
+            type: boolean
+            default: false
