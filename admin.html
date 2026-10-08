@@ -1,721 +1,1308 @@
 <!DOCTYPE html>
 <html lang="fr">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="robots" content="noindex,nofollow">
-<title>Administration — Neku</title>
-<style>
-*{margin:0;padding:0;box-sizing:border-box}
-:root{--bg:#07071a;--card:#0e0c22;--pink:#e879f9;--purple:#a855f7;--cyan:#22d3ee;--text:#f1f5f9;--muted:#94a3b8;--line:rgba(168,85,247,.28)}
-body{font-family:'Liberation Sans','Noto Sans',sans-serif;background:var(--bg);color:var(--text);padding:1rem 1rem 6rem;line-height:1.5}
-main{max-width:860px;margin:0 auto}
-header{display:flex;align-items:center;justify-content:space-between;gap:1rem;margin:0 auto 1.2rem;max-width:860px}
-h1{font-size:1.1rem;letter-spacing:3px;text-transform:uppercase;color:var(--pink)}
-h2{font-size:.95rem;letter-spacing:2px;text-transform:uppercase;color:var(--pink);margin-bottom:.8rem}
-.card{background:var(--card);border:1px solid var(--line);border-radius:.9rem;padding:1.1rem;margin-bottom:1rem}
-.hint{font-size:.78rem;color:var(--muted)}
-label{display:block;font-size:.78rem;font-weight:700;color:var(--muted);margin:.7rem 0 .25rem;letter-spacing:.5px}
-input[type=text],input[type=url],input[type=password],select{
-  width:100%;padding:.55rem .7rem;border-radius:.5rem;border:1px solid var(--line);
-  background:#0a0820;color:var(--text);font-size:.9rem}
-input:disabled,select:disabled{opacity:.55}
-input[type=color]{width:2.6rem;height:2.2rem;border:1px solid var(--line);border-radius:.4rem;background:none;padding:0;cursor:pointer}
-.hex{width:6.5rem!important;font-family:monospace}
-button{
-  padding:.55rem 1rem;border-radius:30px;border:0;cursor:pointer;font-weight:700;font-size:.78rem;letter-spacing:1px;
-  color:#fff;background:linear-gradient(135deg,#e040fb,#7c3aed)}
-button:hover{opacity:.88}
-button.ghost{background:none;border:1px solid var(--line);color:var(--text)}
-button.danger{background:none;border:1px solid rgba(248,113,113,.6);color:#fca5a5}
-button:disabled{opacity:.35;cursor:not-allowed}
-.row{display:flex;flex-wrap:wrap;gap:.6rem;align-items:center;margin-top:1rem}
-.tabs{display:flex;gap:.5rem;margin-bottom:1rem}
-.tabs button{background:none;border:1px solid var(--line);color:var(--muted)}
-.tabs button.on{background:rgba(168,85,247,.2);color:var(--text);border-color:var(--purple)}
-[hidden]{display:none!important}
-.busy{pointer-events:none;opacity:.55}
-details{margin-top:.8rem;font-size:.8rem;color:var(--muted)}
-summary{cursor:pointer;color:var(--cyan)}
-details ol{margin:.5rem 0 0 1.2rem}
-details li{margin:.25rem 0}
-a{color:var(--cyan)}
-
-/* Aperçu couleur (même rendu que sur le site) */
-.chip{display:inline-block;padding:.25rem 1rem;border-radius:30px;font-size:.65rem;font-weight:700;letter-spacing:2px;text-transform:uppercase}
-.mini{width:130px;border-radius:.6rem;overflow:hidden;border:1px solid rgba(168,85,247,.25);background:var(--card)}
-.mini-img{height:52px;background:rgba(255,255,255,.06)}
-.mini-foot{padding:.3rem .5rem;font-size:.7rem;font-weight:700;background:rgba(255,255,255,.04)}
-.preview{display:flex;gap:1rem;align-items:center;margin-top:.9rem;flex-wrap:wrap}
-.src-row{display:flex;flex-wrap:wrap;gap:.6rem;align-items:center;padding:.7rem 0;border-top:1px solid var(--line)}
-.src-row:first-child{border-top:0}
-.src-row .chip{min-width:7rem;text-align:center}
-
-/* Personnages */
-.perso-row{display:flex;align-items:center;gap:.7rem;padding:.6rem 0;border-top:1px solid var(--line);flex-wrap:wrap}
-.perso-row:first-child{border-top:0}
-.perso-row .nm{font-weight:700;margin-right:auto}
-.drop{margin-top:.9rem;border:2px dashed var(--line);border-radius:.8rem;padding:1.4rem;text-align:center;color:var(--muted);cursor:pointer;transition:background .2s,border-color .2s}
-.drop:hover,.drop.over{background:rgba(168,85,247,.1);border-color:var(--pink);color:var(--text)}
-.thumbs{display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:.7rem;margin-top:.8rem}
-.thumb{border:1px solid var(--line);border-radius:.6rem;overflow:hidden;background:#0a0820;position:relative}
-.thumb .ph{height:110px;overflow:hidden;background:rgba(255,255,255,.05)}
-.thumb img{width:100%;height:100%;object-fit:cover;display:block}
-.thumb img.blur{filter:blur(12px);transform:scale(1.2)}
-.thumb .pth{font-size:.62rem;color:var(--muted);padding:.3rem .5rem;word-break:break-all}
-.thumb .ctl{display:flex;justify-content:space-between;align-items:center;padding:.3rem .5rem .5rem;font-size:.72rem}
-.thumb .ctl label{display:flex;gap:.3rem;align-items:center;margin:0;color:var(--text);cursor:pointer}
-.thumb .x{padding:.15rem .55rem;font-size:.7rem;background:none;border:1px solid var(--line);color:var(--text)}
-.thumb.gone{opacity:.4}
-.thumb.gone .pth{text-decoration:line-through}
-.chk{display:flex;gap:.5rem;align-items:center;margin-top:.9rem;font-size:.8rem;color:var(--text);font-weight:400}
-#status{position:fixed;left:0;right:0;bottom:0;padding:.8rem 1rem;text-align:center;font-size:.85rem;background:#13102e;border-top:1px solid var(--line)}
-#status.ok{background:#052e1a;color:#86efac}
-#status.err{background:#3b0d12;color:#fca5a5}
-</style>
-</head>
-<body>
-
-<header>
-  <h1>Administration · Neku</h1>
-  <button id="logout" class="ghost" hidden>Se déconnecter</button>
-</header>
-
-<main>
-  <!-- ═════ CONNEXION ═════ -->
-  <section id="login" class="card">
-    <h2>Connexion</h2>
-    <p class="hint">Cette page modifie ton site directement sur GitHub. Il faut un « token » (une clé personnelle), qui reste uniquement dans ce navigateur.</p>
-    <label for="l-repo">Dépôt GitHub (utilisateur/nom-du-dépôt)</label>
-    <input id="l-repo" type="text" placeholder="ton-pseudo/ton-depot" autocomplete="off">
-    <label for="l-branch">Branche</label>
-    <input id="l-branch" type="text" value="main" autocomplete="off">
-    <label for="l-token">Token GitHub</label>
-    <input id="l-token" type="password" placeholder="github_pat_…" autocomplete="off">
-    <div class="row"><button id="l-go">Se connecter</button></div>
-    <details>
-      <summary>Comment obtenir mon token ?</summary>
-      <ol>
-        <li>Va sur <a href="https://github.com/settings/personal-access-tokens/new" target="_blank" rel="noopener noreferrer">github.com/settings/personal-access-tokens/new</a>.</li>
-        <li><b>Token name</b> : par exemple « admin site ». <b>Expiration</b> : choisis la durée maximale.</li>
-        <li><b>Repository access</b> : « Only select repositories », puis choisis le dépôt de ton site.</li>
-        <li><b>Permissions</b> → « Repository permissions » → <b>Contents</b> : « Read and write ».</li>
-        <li>Clique sur « Generate token », copie-le et colle-le ci-dessus.</li>
-      </ol>
-    </details>
-  </section>
-
-  <!-- ═════ APPLICATION ═════ -->
-  <div id="app" hidden>
-    <div class="tabs">
-      <button data-tab="persos" class="on">Personnages</button>
-      <button data-tab="sources">Sources</button>
-    </div>
-
-    <!-- Personnages -->
-    <section id="tab-persos">
-      <div class="card" id="form">
-        <h2 id="f-title">Nouveau personnage</h2>
-
-        <label for="f-name">Nom du personnage</label>
-        <input id="f-name" type="text" autocomplete="off" placeholder="Hatsune Miku">
-
-        <label for="f-source">Source</label>
-        <select id="f-source"></select>
-        <p class="hint" id="f-nosrc" hidden>Crée d'abord une source dans l'onglet « Sources ».</p>
-
-        <label for="f-wiki">Lien Wikipédia (facultatif)</label>
-        <input id="f-wiki" type="url" autocomplete="off" placeholder="https://fr.wikipedia.org/wiki/…">
-
-        <div id="f-existing-box" hidden>
-          <label>Images déjà en ligne</label>
-          <div class="thumbs" id="f-existing"></div>
-        </div>
-
-        <label>Ajouter des images</label>
-        <div class="drop" id="drop" tabindex="0" role="button">Glisse tes images ici (plusieurs à la fois) ou clique pour les choisir</div>
-        <input id="f-files" type="file" accept="image/png,image/jpeg,image/webp,image/gif" multiple hidden>
-
-        <div class="row" id="f-bulk" hidden>
-          <button class="ghost" id="f-allsfw" type="button">Tout en SFW</button>
-          <button class="ghost" id="f-allnsfw" type="button">Tout en NSFW</button>
-        </div>
-        <div class="thumbs" id="f-pending"></div>
-
-        <label class="chk"><input type="checkbox" id="f-webp"> Alléger les images (conversion en WebP, 900 px de large maximum)</label>
-
-        <div class="row">
-          <button id="f-save">Publier sur le site</button>
-          <button id="f-cancel" class="ghost" hidden>Annuler la modification</button>
-          <button id="f-del" class="danger" hidden>Supprimer ce personnage</button>
-        </div>
-        <p class="hint" style="margin-top:.7rem">Les fichiers sont rangés automatiquement dans <code>images/source/personnage/SFW</code> ou <code>NSFW</code>, et nommés <code>Nom_du_personnage_00</code>, <code>_01</code>…</p>
-      </div>
-
-      <div class="card">
-        <h2>Personnages existants</h2>
-        <div id="p-list"></div>
-      </div>
-    </section>
-
-    <!-- Sources -->
-    <section id="tab-sources" hidden>
-      <div class="card">
-        <h2>Nouvelle source</h2>
-        <label for="s-name">Nom de la source</label>
-        <input id="s-name" type="text" autocomplete="off" placeholder="Vocaloid">
-        <label for="s-color">Couleur</label>
-        <div class="row" style="margin-top:0">
-          <input id="s-color" type="color" value="#60a5fa">
-          <input id="s-hex" class="hex" type="text" maxlength="7" value="#60a5fa" autocomplete="off">
-        </div>
-        <div class="preview" id="s-preview"></div>
-        <div class="row"><button id="s-add">Ajouter la source</button></div>
-      </div>
-      <div class="card">
-        <h2>Sources existantes</h2>
-        <p class="hint" style="margin-bottom:.5rem">Le nom d'une source ne peut pas être changé ici (ses images sont rangées dans un dossier à son nom).</p>
-        <div id="src-list"></div>
-      </div>
-    </section>
-  </div>
-</main>
-
-<div id="status" role="status" hidden></div>
-
-<script>
-/* ════════════════════════ OUTILS ════════════════════════ */
-const $ = (s, r = document) => r.querySelector(s);
-const el = (tag, cls, txt) => {
-  const e = document.createElement(tag);
-  if (cls) e.className = cls;
-  if (txt != null) e.textContent = txt;
-  return e;
-};
-const LS = 'neku-admin';
-
-/* nom propre pour dossiers/fichiers : sans accents, lettres/chiffres/_ uniquement */
-const clean = s => String(s || '').normalize('NFD').replace(/[\u0300-\u036f]/g, '')
-  .replace(/[^A-Za-z0-9]+/g, '_').replace(/^_+|_+$/g, '');
-const isHex  = c => /^#[0-9a-f]{6}$/i.test(c || '');
-const isHttp = u => /^https?:\/\//i.test(u || '');
-const norm   = p => String(p || '').replace(/^\//, '');
-const pad    = n => String(n).padStart(2, '0');
-const dirOf  = (source, name, nsfw) => `images/${clean(source)}/${clean(name)}/${nsfw ? 'NSFW' : 'SFW'}`;
-const fileOf = (name, n, ext) => `${clean(name)}_${pad(n)}.${ext}`;
-const extOf  = f => ({ 'image/png': 'png', 'image/jpeg': 'jpg', 'image/webp': 'webp', 'image/gif': 'gif' })[f.type] || null;
-const chipStyle = c => `color:${c};background:linear-gradient(135deg,${c}28,${c}10);border:1px solid ${c}65`;
-
-/* prochain numéro libre pour un personnage (le premier fichier = 00) */
-const nextNumber = srcs => Math.max(-1, ...srcs.map(s => {
-  const m = /_(\d+)\.[a-z0-9]+$/i.exec(s);
-  return m ? +m[1] : -1;
-})) + 1;
-
-const bytesToB64 = bytes => {
-  let s = '';
-  for (let i = 0; i < bytes.length; i += 0x8000) s += String.fromCharCode.apply(null, bytes.subarray(i, i + 0x8000));
-  return btoa(s);
-};
-const textToB64 = t => bytesToB64(new TextEncoder().encode(t));
-const blobToB64 = async b => bytesToB64(new Uint8Array(await b.arrayBuffer()));
-const b64ToText = b => new TextDecoder().decode(Uint8Array.from(atob(b.replace(/\s/g, '')), c => c.charCodeAt(0)));
-
-async function toWebp(file) {
-  const bmp = await createImageBitmap(file);
-  const k = Math.min(1, 900 / bmp.width);
-  const c = document.createElement('canvas');
-  c.width = Math.round(bmp.width * k);
-  c.height = Math.round(bmp.height * k);
-  c.getContext('2d').drawImage(bmp, 0, 0, c.width, c.height);
-  return new Promise(res => c.toBlob(res, 'image/webp', .82));
-}
-
-function say(msg, kind) {
-  const s = $('#status');
-  s.textContent = msg || '';
-  s.className = kind || '';
-  s.hidden = !msg;
-}
-
-/* ════════════════════════ GITHUB ════════════════════════ */
-let cfg = { repo: '', branch: 'main', token: '' };
-let headSha = '', treeSha = '', paths = new Map(), sources = [], persos = [];
-let busy = false;
-
-async function gh(path, opts = {}) {
-  const r = await fetch(`https://api.github.com/repos/${cfg.repo}${path}`, {
-    method: opts.method || 'GET',
-    cache: 'no-store',
-    headers: {
-      Accept: 'application/vnd.github+json',
-      Authorization: `Bearer ${cfg.token}`,
-      'X-GitHub-Api-Version': '2022-11-28',
-      ...(opts.body ? { 'Content-Type': 'application/json' } : {}),
-    },
-    body: opts.body ? JSON.stringify(opts.body) : undefined,
-  });
-  if (!r.ok) {
-    let m = '';
-    try { m = (await r.json()).message || ''; } catch (_) {}
-    const e = new Error(m || r.statusText);
-    e.status = r.status;
-    throw e;
-  }
-  return r.status === 204 ? null : r.json();
-}
-
-function explain(e) {
-  if (e && e.status === 401) return 'Token refusé ou expiré. Crée-en un nouveau et reconnecte-toi.';
-  if (e && (e.status === 403 || e.status === 404)) return 'Accès refusé ou dépôt/branche introuvable. Vérifie le nom du dépôt, la branche, et que le token a la permission « Contents : Read and write ».';
-  if (e && (e.status === 409 || e.status === 422)) return 'Le dépôt a changé pendant l\'envoi. Réessaie.';
-  if (e instanceof TypeError) return 'Connexion impossible. Vérifie ta connexion internet.';
-  return (e && e.message) || 'Erreur inconnue.';
-}
-
-async function readJSON(p) {
-  const sha = paths.get(p);
-  if (!sha) return [];
-  const b = await gh(`/git/blobs/${sha}`);
-  const v = JSON.parse(b64ToText(b.content) || '[]');
-  return Array.isArray(v) ? v : [];
-}
-
-async function load() {
-  const ref = await gh(`/git/ref/heads/${cfg.branch}`);
-  headSha = ref.object.sha;
-  const commitObj = await gh(`/git/commits/${headSha}`);
-  treeSha = commitObj.tree.sha;
-  const tree = await gh(`/git/trees/${treeSha}?recursive=1`);
-  if (tree.truncated) throw new Error('Dépôt trop volumineux pour cet outil.');
-  paths = new Map(tree.tree.filter(t => t.type === 'blob').map(t => [t.path, t.sha]));
-  sources = await readJSON('data/sources.json');
-  persos  = await readJSON('data/personnages.json');
-}
-
-/* un seul commit pour toutes les modifications */
-async function commit(changes, message) {
-  const entries = [];
-  for (const c of changes) {
-    if (c.remove) entries.push({ path: c.path, mode: '100644', type: 'blob', sha: null });
-    else if (c.sha) entries.push({ path: c.path, mode: '100644', type: 'blob', sha: c.sha });
-    else {
-      const b = await gh('/git/blobs', { method: 'POST', body: { content: c.b64, encoding: 'base64' } });
-      entries.push({ path: c.path, mode: '100644', type: 'blob', sha: b.sha });
-    }
-  }
-  const tree = await gh('/git/trees', { method: 'POST', body: { base_tree: treeSha, tree: entries } });
-  const cm = await gh('/git/commits', { method: 'POST', body: { message, tree: tree.sha, parents: [headSha] } });
-  await gh(`/git/refs/heads/${cfg.branch}`, { method: 'PATCH', body: { sha: cm.sha } });
-}
-const jsonFile = (path, data) => ({ path, b64: textToB64(JSON.stringify(data, null, 2) + '\n') });
-
-/* exécute une action : données fraîches avant, rafraîchissement après */
-async function guarded(fn, okMsg) {
-  if (busy) return false;
-  busy = true;
-  setBusy(true);
-  try {
-    say('Envoi en cours… ne ferme pas la page.');
-    await load();
-    await fn();
-    await load();
-    render();
-    say(okMsg + ' Visible sur le site dans 1 à 3 minutes.', 'ok');
-    return true;
-  } catch (e) {
-    console.error(e);
-    say(explain(e), 'err');
-    return false;
-  } finally {
-    busy = false;
-    setBusy(false);
-  }
-}
-function setBusy(b) { $('#app').classList.toggle('busy', b); }
-
-/* ════════════════════════ ACTIONS : SOURCES ════════════════════════ */
-function doAddSource(name, color) {
-  return guarded(async () => {
-    if (sources.some(s => s.name.toLowerCase() === name.toLowerCase() || clean(s.name).toLowerCase() === clean(name).toLowerCase()))
-      throw new Error('Cette source existe déjà (les majuscules ne comptent pas).');
-    await commit([jsonFile('data/sources.json', [...sources, { name, color: color.toLowerCase() }])], `Admin : ajout de la source ${name}`);
-  }, `Source « ${name} » ajoutée.`);
-}
-function doSetColor(name, color) {
-  return guarded(async () => {
-    if (!sources.some(s => s.name === name)) throw new Error('Source introuvable.');
-    const next = sources.map(s => s.name === name ? { ...s, color: color.toLowerCase() } : s);
-    await commit([jsonFile('data/sources.json', next)], `Admin : couleur de la source ${name}`);
-  }, `Couleur de « ${name} » enregistrée.`);
-}
-function doDeleteSource(name) {
-  return guarded(async () => {
-    if (persos.some(p => p.source === name)) throw new Error('Cette source est encore utilisée par des personnages.');
-    await commit([jsonFile('data/sources.json', sources.filter(s => s.name !== name))], `Admin : suppression de la source ${name}`);
-  }, `Source « ${name} » supprimée.`);
-}
-
-/* ════════════════════════ ACTIONS : PERSONNAGES ════════════════════════ */
-function doSaveCharacter(F) {
-  return guarded(async () => {
-    const idx = F.mode === 'edit' ? persos.findIndex(p => p.name === F.origName) : -1;
-    if (F.mode === 'edit' && idx < 0) throw new Error('Ce personnage n\'existe plus dans le dépôt.');
-    if (F.mode === 'new' && persos.some(p => p.source === F.source && clean(p.name).toLowerCase() === clean(F.name).toLowerCase()))
-      throw new Error('Un personnage de cette source porte déjà ce nom.');
-
-    const changes = [], keep = [];
-
-    for (const im of F.existing) {
-      const old = norm(im.src);
-      if (im.remove) { if (paths.has(old)) changes.push({ path: old, remove: true }); continue; }
-      if (im.nsfw !== im.origNsfw && paths.has(old)) {
-        const np = `${dirOf(F.source, F.name, im.nsfw)}/${old.split('/').pop()}`;
-        if (np !== old) {
-          changes.push({ path: old, remove: true }, { path: np, sha: paths.get(old) });
-          keep.push({ src: np, nsfw: im.nsfw });
-          continue;
-        }
-      }
-      keep.push({ src: im.src, nsfw: im.nsfw });
-    }
-
-    let n = nextNumber(F.existing.map(i => i.src));
-    for (const p of F.pending) {
-      const asWebp = F.webp && p.ext !== 'gif';
-      const blob = asWebp ? await toWebp(p.file) : p.file;
-      const ext = asWebp ? 'webp' : p.ext;
-      let path;
-      do { path = `${dirOf(F.source, F.name, p.nsfw)}/${fileOf(F.name, n++, ext)}`; } while (paths.has(path));
-      changes.push({ path, b64: await blobToB64(blob) });
-      keep.push({ src: path, nsfw: p.nsfw });
-    }
-
-    const entry = { name: F.name.trim(), source: F.source, wiki: isHttp(F.wiki) ? F.wiki.trim() : '', images: keep };
-    const next = [...persos];
-    if (idx >= 0) next[idx] = entry; else next.push(entry);
-    changes.push(jsonFile('data/personnages.json', next));
-    await commit(changes, `Admin : ${F.mode === 'edit' ? 'modification de' : 'ajout de'} ${entry.name}`);
-  }, F.mode === 'edit' ? `« ${F.name} » mis à jour.` : `« ${F.name} » ajouté.`);
-}
-function doDeleteCharacter(name) {
-  return guarded(async () => {
-    const p = persos.find(x => x.name === name);
-    if (!p) throw new Error('Personnage introuvable.');
-    const changes = (p.images || []).map(i => norm(i.src)).filter(x => paths.has(x)).map(path => ({ path, remove: true }));
-    changes.push(jsonFile('data/personnages.json', persos.filter(x => x !== p)));
-    await commit(changes, `Admin : suppression de ${name}`);
-  }, `« ${name} » supprimé.`);
-}
-
-/* ════════════════════════ INTERFACE : FORMULAIRE ════════════════════════ */
-const newForm = () => ({ mode: 'new', origName: '', name: '', source: '', wiki: '', existing: [], pending: [], webp: false });
-let F = newForm();
-
-function thumbItem({ src, blur, path, nsfw, onNsfw, removeLabel, onRemove, gone }) {
-  const it = el('div', 'thumb' + (gone ? ' gone' : ''));
-  const ph = el('div', 'ph');
-  const im = new Image();
-  im.src = src;
-  im.alt = '';
-  if (blur) im.className = 'blur';
-  im.onerror = () => { im.style.display = 'none'; };
-  ph.append(im);
-  const pth = el('div', 'pth', path);
-  const ctl = el('div', 'ctl');
-  const lb = el('label');
-  const cb = el('input');
-  cb.type = 'checkbox';
-  cb.checked = nsfw;
-  cb.addEventListener('change', () => onNsfw(cb.checked));
-  lb.append(cb, document.createTextNode(' NSFW'));
-  const x = el('button', 'x', removeLabel);
-  x.type = 'button';
-  x.addEventListener('click', onRemove);
-  ctl.append(lb, x);
-  it.append(ph, pth, ctl);
-  return it;
-}
-
-function previewPaths() {
-  let n = nextNumber(F.existing.map(i => i.src));
-  const nm = F.name.trim() || 'Nom', so = F.source || 'Source';
-  return F.pending.map(p => {
-    const ext = (F.webp && p.ext !== 'gif') ? 'webp' : p.ext;
-    return `${dirOf(so, nm, p.nsfw)}/${fileOf(nm, n++, ext)}`;
-  });
-}
-
-function renderForm() {
-  const ex = $('#f-existing');
-  ex.replaceChildren();
-  $('#f-existing-box').hidden = !F.existing.length;
-  F.existing.forEach(im => {
-    ex.append(thumbItem({
-      src: norm(im.src), blur: im.nsfw, path: norm(im.src), nsfw: im.nsfw,
-      onNsfw: v => { im.nsfw = v; renderForm(); },
-      removeLabel: im.remove ? 'Annuler' : 'Retirer',
-      onRemove: () => { im.remove = !im.remove; renderForm(); },
-      gone: im.remove,
-    }));
-  });
-
-  const pe = $('#f-pending');
-  pe.replaceChildren();
-  const pp = previewPaths();
-  F.pending.forEach((p, i) => {
-    pe.append(thumbItem({
-      src: p.url, blur: p.nsfw, path: pp[i], nsfw: p.nsfw,
-      onNsfw: v => { p.nsfw = v; renderForm(); },
-      removeLabel: '✕',
-      onRemove: () => { URL.revokeObjectURL(p.url); F.pending.splice(i, 1); renderForm(); },
-    }));
-  });
-  $('#f-bulk').hidden = !F.pending.length;
-
-  const edit = F.mode === 'edit';
-  $('#f-title').textContent = edit ? `Modifier : ${F.origName}` : 'Nouveau personnage';
-  $('#f-name').disabled = edit;
-  $('#f-source').disabled = edit;
-  $('#f-cancel').hidden = !edit;
-  $('#f-del').hidden = !edit;
-  $('#f-save').textContent = edit ? 'Enregistrer les modifications' : 'Publier sur le site';
-}
-
-function renderSourceSelect() {
-  const sel = $('#f-source');
-  sel.replaceChildren();
-  const first = el('option', '', '— Choisis une source —');
-  first.value = '';
-  sel.append(first);
-  sources.forEach(s => {
-    const o = el('option', '', s.name);
-    o.value = s.name;
-    sel.append(o);
-  });
-  if (F.source && !sources.some(s => s.name === F.source)) F.source = '';
-  sel.value = F.source;
-  $('#f-nosrc').hidden = sources.length > 0;
-}
-
-function resetForm() {
-  F.pending.forEach(p => URL.revokeObjectURL(p.url));
-  F = newForm();
-  $('#f-name').value = '';
-  $('#f-wiki').value = '';
-  $('#f-webp').checked = false;
-  $('#f-files').value = '';
-  renderSourceSelect();
-  renderForm();
-}
-
-function editCharacter(p) {
-  F.pending.forEach(x => URL.revokeObjectURL(x.url));
-  F = {
-    mode: 'edit', origName: p.name, name: p.name, source: p.source, wiki: p.wiki || '',
-    existing: (p.images || []).map(i => ({ src: i.src, nsfw: !!i.nsfw, origNsfw: !!i.nsfw, remove: false })),
-    pending: [], webp: false,
-  };
-  $('#f-name').value = p.name;
-  $('#f-wiki').value = p.wiki || '';
-  $('#f-webp').checked = false;
-  renderSourceSelect();
-  renderForm();
-  $('#form').scrollIntoView({ behavior: 'smooth', block: 'start' });
-}
-
-function addFiles(list) {
-  const ok = [...list].filter(f => extOf(f));
-  if (ok.length < list.length) say('Certains fichiers ont été ignorés (formats acceptés : PNG, JPG, WebP, GIF).', 'err');
-  ok.forEach(f => F.pending.push({ file: f, ext: extOf(f), nsfw: false, url: URL.createObjectURL(f) }));
-  renderForm();
-}
-
-function wireForm() {
-  $('#f-name').addEventListener('input', e => { F.name = e.target.value; renderForm(); });
-  $('#f-source').addEventListener('change', e => { F.source = e.target.value; renderForm(); });
-  $('#f-wiki').addEventListener('input', e => { F.wiki = e.target.value; });
-  $('#f-webp').addEventListener('change', e => { F.webp = e.target.checked; renderForm(); });
-
-  const drop = $('#drop'), input = $('#f-files');
-  drop.addEventListener('click', () => input.click());
-  drop.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); input.click(); } });
-  input.addEventListener('change', () => { addFiles(input.files); input.value = ''; });
-  ['dragenter', 'dragover'].forEach(t => drop.addEventListener(t, e => { e.preventDefault(); drop.classList.add('over'); }));
-  ['dragleave', 'drop'].forEach(t => drop.addEventListener(t, e => { e.preventDefault(); drop.classList.remove('over'); }));
-  drop.addEventListener('drop', e => addFiles(e.dataTransfer.files));
-
-  $('#f-allsfw').addEventListener('click', () => { F.pending.forEach(p => p.nsfw = false); renderForm(); });
-  $('#f-allnsfw').addEventListener('click', () => { F.pending.forEach(p => p.nsfw = true); renderForm(); });
-
-  $('#f-save').addEventListener('click', async () => {
-    const name = F.name.trim();
-    if (!clean(name)) return say('Le nom doit contenir au moins une lettre ou un chiffre (a-z, 0-9).', 'err');
-    if (!F.source) return say('Choisis une source.', 'err');
-    if (F.wiki.trim() && !isHttp(F.wiki.trim())) return say('Le lien Wikipédia doit commencer par https://', 'err');
-    const total = F.pending.length + F.existing.filter(i => !i.remove).length;
-    if (!total) return say('Ajoute au moins une image.', 'err');
-    if (await doSaveCharacter(F)) resetForm();
-  });
-  $('#f-cancel').addEventListener('click', () => { resetForm(); say(''); });
-  $('#f-del').addEventListener('click', async () => {
-    if (!confirm(`Supprimer « ${F.origName} » et toutes ses images ? Cette action est définitive.`)) return;
-    if (await doDeleteCharacter(F.origName)) resetForm();
-  });
-}
-
-function renderPersoList() {
-  const box = $('#p-list');
-  box.replaceChildren();
-  if (!persos.length) { box.append(el('p', 'hint', 'Aucun personnage pour l\'instant.')); return; }
-  persos.forEach(p => {
-    const src = sources.find(s => s.name === p.source);
-    const row = el('div', 'perso-row');
-    row.append(el('span', 'nm', p.name));
-    const chip = el('span', 'chip', p.source || '—');
-    chip.style.cssText = chipStyle(src && isHex(src.color) ? src.color : '#a855f7');
-    const n = (p.images || []).length;
-    const nn = (p.images || []).filter(i => i.nsfw).length;
-    row.append(chip, el('span', 'hint', `${n} image${n > 1 ? 's' : ''}${nn ? ` (dont ${nn} NSFW)` : ''}`));
-    const b = el('button', 'ghost', 'Modifier');
-    b.addEventListener('click', () => editCharacter(p));
-    row.append(b);
-    box.append(row);
-  });
-}
-
-/* ════════════════════════ INTERFACE : SOURCES ════════════════════════ */
-function paintPreview(box, name, color) {
-  box.replaceChildren();
-  const chip = el('span', 'chip', name || 'Nom de la source');
-  chip.style.cssText = chipStyle(color);
-  const mini = el('div', 'mini');
-  mini.append(el('div', 'mini-img'));
-  const foot = el('div', 'mini-foot', 'Personnage');
-  foot.style.borderTop = `2px solid ${color}45`;
-  mini.append(foot);
-  box.append(chip, mini);
-}
-
-function wireSourceForm() {
-  const name = $('#s-name'), pick = $('#s-color'), hex = $('#s-hex'), prev = $('#s-preview');
-  const paint = () => paintPreview(prev, name.value.trim(), pick.value);
-  pick.addEventListener('input', () => { hex.value = pick.value; paint(); });
-  hex.addEventListener('input', () => { if (isHex(hex.value)) { pick.value = hex.value.toLowerCase(); paint(); } });
-  name.addEventListener('input', paint);
-  paint();
-  $('#s-add').addEventListener('click', async () => {
-    const n = name.value.trim();
-    if (!clean(n)) return say('Le nom doit contenir au moins une lettre ou un chiffre (a-z, 0-9).', 'err');
-    if (!isHex(hex.value)) return say('Couleur invalide (exemple : #60a5fa).', 'err');
-    if (await doAddSource(n, hex.value)) { name.value = ''; paint(); }
-  });
-}
-
-function renderSources() {
-  const box = $('#src-list');
-  box.replaceChildren();
-  if (!sources.length) { box.append(el('p', 'hint', 'Aucune source pour l\'instant.')); return; }
-  sources.forEach(s => {
-    const used = persos.filter(p => p.source === s.name).length;
-    const row = el('div', 'src-row');
-    const start = isHex(s.color) ? s.color.toLowerCase() : '#a855f7';
-    const chip = el('span', 'chip', s.name);
-    chip.style.cssText = chipStyle(start);
-    const pick = el('input');
-    pick.type = 'color';
-    pick.value = start;
-    const hex = el('input', 'hex');
-    hex.type = 'text';
-    hex.maxLength = 7;
-    hex.value = start;
-    const sync = v => { if (isHex(v)) { pick.value = v.toLowerCase(); hex.value = v.toLowerCase(); chip.style.cssText = chipStyle(v); } };
-    pick.addEventListener('input', () => sync(pick.value));
-    hex.addEventListener('input', () => sync(hex.value));
-    const save = el('button', 'ghost', 'Enregistrer la couleur');
-    save.addEventListener('click', () => {
-      if (!isHex(hex.value)) return say('Couleur invalide (exemple : #60a5fa).', 'err');
-      doSetColor(s.name, hex.value);
-    });
-    const del = el('button', 'danger', used ? `Utilisée par ${used} perso.` : 'Supprimer');
-    del.disabled = used > 0;
-    del.addEventListener('click', () => { if (confirm(`Supprimer la source « ${s.name} » ?`)) doDeleteSource(s.name); });
-    row.append(chip, pick, hex, save, del);
-    box.append(row);
-  });
-}
-
-/* ════════════════════════ CONNEXION ET DÉMARRAGE ════════════════════════ */
-function render() {
-  renderSources();
-  renderSourceSelect();
-  renderPersoList();
-  renderForm();
-}
-
-function showApp()   { $('#login').hidden = true;  $('#app').hidden = false; $('#logout').hidden = false; }
-function showLogin() { $('#login').hidden = false; $('#app').hidden = true;  $('#logout').hidden = true; }
-
-async function connect(c) {
-  cfg = c;
-  say('Connexion…');
-  try {
-    await load();
-    localStorage.setItem(LS, JSON.stringify(cfg));
-    showApp();
-    render();
-    say('Connecté.', 'ok');
-    setTimeout(() => { if ($('#status').className === 'ok') say(''); }, 2500);
-  } catch (e) {
-    console.error(e);
-    showLogin();
-    say(explain(e), 'err');
-  }
-}
-
-function guessRepo() {
-  const h = location.hostname;
-  if (!h.endsWith('.github.io')) return '';
-  const owner = h.split('.')[0];
-  const seg = location.pathname.split('/')[1];
-  return `${owner}/${seg && !seg.endsWith('.html') ? seg : h}`;
-}
-
-function init() {
-  wireForm();
-  wireSourceForm();
-
-  document.querySelectorAll('.tabs button').forEach(b => b.addEventListener('click', () => {
-    document.querySelectorAll('.tabs button').forEach(x => x.classList.toggle('on', x === b));
-    $('#tab-persos').hidden  = b.dataset.tab !== 'persos';
-    $('#tab-sources').hidden = b.dataset.tab !== 'sources';
-  }));
-
-  $('#l-go').addEventListener('click', () => {
-    const repo = $('#l-repo').value.trim().replace(/^https?:\/\/github\.com\//i, '').replace(/\/$/, '');
-    const branch = $('#l-branch').value.trim() || 'main';
-    const token = $('#l-token').value.trim();
-    if (!/^[\w.-]+\/[\w.-]+$/.test(repo)) return say('Le dépôt doit être au format utilisateur/nom-du-dépôt.', 'err');
-    if (!token) return say('Colle ton token GitHub.', 'err');
-    connect({ repo, branch, token });
-  });
-
-  $('#logout').addEventListener('click', () => {
-    localStorage.removeItem(LS);
-    cfg = { repo: '', branch: 'main', token: '' };
-    $('#l-token').value = '';
-    showLogin();
-    say('Déconnecté. Le token a été effacé de ce navigateur.', 'ok');
-  });
-
-  let saved = null;
-  try { saved = JSON.parse(localStorage.getItem(LS) || 'null'); } catch (_) {}
-  $('#l-repo').value = (saved && saved.repo) || guessRepo();
-  $('#l-branch').value = (saved && saved.branch) || 'main';
-  if (saved && saved.token) { $('#l-token').value = saved.token; connect(saved); }
-}
-
-init();
-</script>
-</body>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="robots" content="noindex,nofollow">
+		<title>Administration — Neku</title>
+		<style>
+			* {
+				margin: 0;
+				padding: 0;
+				box-sizing: border-box
+			}
+
+			:root {
+				--bg: #07071a;
+				--card: #0e0c22;
+				--pink: #e879f9;
+				--purple: #a855f7;
+				--cyan: #22d3ee;
+				--text: #f1f5f9;
+				--muted: #94a3b8;
+				--line: rgba(168, 85, 247, .28)
+			}
+
+			body {
+				font-family: 'Liberation Sans', 'Noto Sans', sans-serif;
+				background: var(--bg);
+				color: var(--text);
+				padding: 1rem 1rem 6rem;
+				line-height: 1.5
+			}
+
+			main {
+				max-width: 860px;
+				margin: 0 auto
+			}
+
+			header {
+				display: flex;
+				align-items: center;
+				justify-content: space-between;
+				gap: 1rem;
+				margin: 0 auto 1.2rem;
+				max-width: 860px
+			}
+
+			h1 {
+				font-size: 1.1rem;
+				letter-spacing: 3px;
+				text-transform: uppercase;
+				color: var(--pink)
+			}
+
+			h2 {
+				font-size: .95rem;
+				letter-spacing: 2px;
+				text-transform: uppercase;
+				color: var(--pink);
+				margin-bottom: .8rem
+			}
+
+			.card {
+				background: var(--card);
+				border: 1px solid var(--line);
+				border-radius: .9rem;
+				padding: 1.1rem;
+				margin-bottom: 1rem
+			}
+
+			.hint {
+				font-size: .78rem;
+				color: var(--muted)
+			}
+
+			label {
+				display: block;
+				font-size: .78rem;
+				font-weight: 700;
+				color: var(--muted);
+				margin: .7rem 0 .25rem;
+				letter-spacing: .5px
+			}
+
+			input[type=text],
+			input[type=url],
+			input[type=password],
+			select {
+				width: 100%;
+				padding: .55rem .7rem;
+				border-radius: .5rem;
+				border: 1px solid var(--line);
+				background: #0a0820;
+				color: var(--text);
+				font-size: .9rem
+			}
+
+			input:disabled,
+			select:disabled {
+				opacity: .55
+			}
+
+			input[type=color] {
+				width: 2.6rem;
+				height: 2.2rem;
+				border: 1px solid var(--line);
+				border-radius: .4rem;
+				background: none;
+				padding: 0;
+				cursor: pointer
+			}
+
+			.hex {
+				width: 6.5rem !important;
+				font-family: monospace
+			}
+
+			button {
+				padding: .55rem 1rem;
+				border-radius: 30px;
+				border: 0;
+				cursor: pointer;
+				font-weight: 700;
+				font-size: .78rem;
+				letter-spacing: 1px;
+				color: #fff;
+				background: linear-gradient(135deg, #e040fb, #7c3aed)
+			}
+
+			button:hover {
+				opacity: .88
+			}
+
+			button.ghost {
+				background: none;
+				border: 1px solid var(--line);
+				color: var(--text)
+			}
+
+			button.danger {
+				background: none;
+				border: 1px solid rgba(248, 113, 113, .6);
+				color: #fca5a5
+			}
+
+			button:disabled {
+				opacity: .35;
+				cursor: not-allowed
+			}
+
+			.row {
+				display: flex;
+				flex-wrap: wrap;
+				gap: .6rem;
+				align-items: center;
+				margin-top: 1rem
+			}
+
+			.tabs {
+				display: flex;
+				gap: .5rem;
+				margin-bottom: 1rem
+			}
+
+			.tabs button {
+				background: none;
+				border: 1px solid var(--line);
+				color: var(--muted)
+			}
+
+			.tabs button.on {
+				background: rgba(168, 85, 247, .2);
+				color: var(--text);
+				border-color: var(--purple)
+			}
+
+			[hidden] {
+				display: none !important
+			}
+
+			.busy {
+				pointer-events: none;
+				opacity: .55
+			}
+
+			details {
+				margin-top: .8rem;
+				font-size: .8rem;
+				color: var(--muted)
+			}
+
+			summary {
+				cursor: pointer;
+				color: var(--cyan)
+			}
+
+			details ol {
+				margin: .5rem 0 0 1.2rem
+			}
+
+			details li {
+				margin: .25rem 0
+			}
+
+			a {
+				color: var(--cyan)
+			}
+
+			/* Aperçu couleur (même rendu que sur le site) */
+			.chip {
+				display: inline-block;
+				padding: .25rem 1rem;
+				border-radius: 30px;
+				font-size: .65rem;
+				font-weight: 700;
+				letter-spacing: 2px;
+				text-transform: uppercase
+			}
+
+			.mini {
+				width: 130px;
+				border-radius: .6rem;
+				overflow: hidden;
+				border: 1px solid rgba(168, 85, 247, .25);
+				background: var(--card)
+			}
+
+			.mini-img {
+				height: 52px;
+				background: rgba(255, 255, 255, .06)
+			}
+
+			.mini-foot {
+				padding: .3rem .5rem;
+				font-size: .7rem;
+				font-weight: 700;
+				background: rgba(255, 255, 255, .04)
+			}
+
+			.preview {
+				display: flex;
+				gap: 1rem;
+				align-items: center;
+				margin-top: .9rem;
+				flex-wrap: wrap
+			}
+
+			.src-row {
+				display: flex;
+				flex-wrap: wrap;
+				gap: .6rem;
+				align-items: center;
+				padding: .7rem 0;
+				border-top: 1px solid var(--line)
+			}
+
+			.src-row:first-child {
+				border-top: 0
+			}
+
+			.src-row .chip {
+				min-width: 7rem;
+				text-align: center
+			}
+
+			/* Personnages */
+			.perso-row {
+				display: flex;
+				align-items: center;
+				gap: .7rem;
+				padding: .6rem 0;
+				border-top: 1px solid var(--line);
+				flex-wrap: wrap
+			}
+
+			.perso-row:first-child {
+				border-top: 0
+			}
+
+			.perso-row .nm {
+				font-weight: 700;
+				margin-right: auto
+			}
+
+			.drop {
+				margin-top: .9rem;
+				border: 2px dashed var(--line);
+				border-radius: .8rem;
+				padding: 1.4rem;
+				text-align: center;
+				color: var(--muted);
+				cursor: pointer;
+				transition: background .2s, border-color .2s
+			}
+
+			.drop:hover,
+			.drop.over {
+				background: rgba(168, 85, 247, .1);
+				border-color: var(--pink);
+				color: var(--text)
+			}
+
+			.thumbs {
+				display: grid;
+				grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+				gap: .7rem;
+				margin-top: .8rem
+			}
+
+			.thumb {
+				border: 1px solid var(--line);
+				border-radius: .6rem;
+				overflow: hidden;
+				background: #0a0820;
+				position: relative
+			}
+
+			.thumb .ph {
+				height: 110px;
+				overflow: hidden;
+				background: rgba(255, 255, 255, .05)
+			}
+
+			.thumb img {
+				width: 100%;
+				height: 100%;
+				object-fit: cover;
+				display: block
+			}
+
+			.thumb img.blur {
+				filter: blur(12px);
+				transform: scale(1.2)
+			}
+
+			.thumb .pth {
+				font-size: .62rem;
+				color: var(--muted);
+				padding: .3rem .5rem;
+				word-break: break-all
+			}
+
+			.thumb .ctl {
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+				padding: .3rem .5rem .5rem;
+				font-size: .72rem
+			}
+
+			.thumb .ctl label {
+				display: flex;
+				gap: .3rem;
+				align-items: center;
+				margin: 0;
+				color: var(--text);
+				cursor: pointer
+			}
+
+			.thumb .x {
+				padding: .15rem .55rem;
+				font-size: .7rem;
+				background: none;
+				border: 1px solid var(--line);
+				color: var(--text)
+			}
+
+			.thumb.gone {
+				opacity: .4
+			}
+
+			.thumb.gone .pth {
+				text-decoration: line-through
+			}
+
+			.chk {
+				display: flex;
+				gap: .5rem;
+				align-items: center;
+				margin-top: .9rem;
+				font-size: .8rem;
+				color: var(--text);
+				font-weight: 400
+			}
+
+			#status {
+				position: fixed;
+				left: 0;
+				right: 0;
+				bottom: 0;
+				padding: .8rem 1rem;
+				text-align: center;
+				font-size: .85rem;
+				background: #13102e;
+				border-top: 1px solid var(--line)
+			}
+
+			#status.ok {
+				background: #052e1a;
+				color: #86efac
+			}
+
+			#status.err {
+				background: #3b0d12;
+				color: #fca5a5
+			}
+		</style>
+	</head>
+
+	<body>
+
+		<header>
+			<h1>Administration · Neku</h1>
+			<button id="logout" class="ghost" hidden>Se déconnecter</button>
+		</header>
+
+		<main>
+			<!-- ═════ CONNEXION ═════ -->
+			<section id="login" class="card">
+				<h2>Connexion</h2>
+				<p class="hint">Cette page modifie ton site directement sur GitHub. Il faut un « token » (une clé personnelle), qui reste uniquement dans ce navigateur.</p>
+				<label for="l-repo">Dépôt GitHub (utilisateur/nom-du-dépôt)</label>
+				<input id="l-repo" type="text" placeholder="ton-pseudo/ton-depot" autocomplete="off">
+				<label for="l-branch">Branche</label>
+				<input id="l-branch" type="text" value="main" autocomplete="off">
+				<label for="l-token">Token GitHub</label>
+				<input id="l-token" type="password" placeholder="github_pat_…" autocomplete="off">
+				<div class="row"><button id="l-go">Se connecter</button></div>
+				<details>
+					<summary>Comment obtenir mon token ?</summary>
+					<ol>
+						<li>Va sur <a href="https://github.com/settings/personal-access-tokens/new" target="_blank" rel="noopener noreferrer">github.com/settings/personal-access-tokens/new</a>.</li>
+						<li><b>Token name</b> : par exemple « admin site ». <b>Expiration</b> : choisis la durée maximale.</li>
+						<li><b>Repository access</b> : « Only select repositories », puis choisis le dépôt de ton site.</li>
+						<li><b>Permissions</b> → « Repository permissions » → <b>Contents</b> : « Read and write ».</li>
+						<li>Clique sur « Generate token », copie-le et colle-le ci-dessus.</li>
+					</ol>
+				</details>
+			</section>
+
+			<!-- ═════ APPLICATION ═════ -->
+			<div id="app" hidden>
+				<div class="tabs">
+					<button data-tab="persos" class="on">Personnages</button>
+					<button data-tab="sources">Sources</button>
+				</div>
+
+				<!-- Personnages -->
+				<section id="tab-persos">
+					<div class="card" id="form">
+						<h2 id="f-title">Nouveau personnage</h2>
+
+						<label for="f-name">Nom du personnage</label>
+						<input id="f-name" type="text" autocomplete="off" placeholder="Hatsune Miku">
+
+						<label for="f-source">Source</label>
+						<select id="f-source"></select>
+						<p class="hint" id="f-nosrc" hidden>Crée d'abord une source dans l'onglet « Sources ».</p>
+
+						<label for="f-wiki">Lien Wikipédia (facultatif)</label>
+						<input id="f-wiki" type="url" autocomplete="off" placeholder="https://fr.wikipedia.org/wiki/…">
+
+						<div id="f-existing-box" hidden>
+							<label>Images déjà en ligne</label>
+							<div class="thumbs" id="f-existing"></div>
+						</div>
+
+						<label>Ajouter des images</label>
+						<div class="drop" id="drop" tabindex="0" role="button">Glisse tes images ici (plusieurs à la fois) ou clique pour les choisir</div>
+						<input id="f-files" type="file" accept="image/png,image/jpeg,image/webp,image/gif" multiple hidden>
+
+						<div class="row" id="f-bulk" hidden>
+							<button class="ghost" id="f-allsfw" type="button">Tout en SFW</button>
+							<button class="ghost" id="f-allnsfw" type="button">Tout en NSFW</button>
+						</div>
+						<div class="thumbs" id="f-pending"></div>
+
+						<label class="chk"><input type="checkbox" id="f-webp"> Alléger les images (conversion en WebP, 900 px de large maximum)</label>
+
+						<div class="row">
+							<button id="f-save">Publier sur le site</button>
+							<button id="f-cancel" class="ghost" hidden>Annuler la modification</button>
+							<button id="f-del" class="danger" hidden>Supprimer ce personnage</button>
+						</div>
+						<p class="hint" style="margin-top:.7rem">Les fichiers sont rangés automatiquement dans <code>images/source/personnage/SFW</code> ou <code>NSFW</code>, et nommés <code>Nom_du_personnage_00</code>, <code>_01</code>…</p>
+					</div>
+
+					<div class="card">
+						<h2>Personnages existants</h2>
+						<div id="p-list"></div>
+					</div>
+				</section>
+
+				<!-- Sources -->
+				<section id="tab-sources" hidden>
+					<div class="card">
+						<h2>Nouvelle source</h2>
+						<label for="s-name">Nom de la source</label>
+						<input id="s-name" type="text" autocomplete="off" placeholder="Vocaloid">
+						<label for="s-color">Couleur</label>
+						<div class="row" style="margin-top:0">
+							<input id="s-color" type="color" value="#60a5fa">
+							<input id="s-hex" class="hex" type="text" maxlength="7" value="#60a5fa" autocomplete="off">
+						</div>
+						<div class="preview" id="s-preview"></div>
+						<div class="row"><button id="s-add">Ajouter la source</button></div>
+					</div>
+					<div class="card">
+						<h2>Sources existantes</h2>
+						<p class="hint" style="margin-bottom:.5rem">Le nom d'une source ne peut pas être changé ici (ses images sont rangées dans un dossier à son nom).</p>
+						<div id="src-list"></div>
+					</div>
+				</section>
+			</div>
+		</main>
+
+		<div id="status" role="status" hidden></div>
+
+		<script>
+			/* ════════════════════════ OUTILS ════════════════════════ */
+			const $ = (s, r = document) => r.querySelector(s);
+			const el = (tag, cls, txt) => {
+				const e = document.createElement(tag);
+				if (cls) e.className = cls;
+				if (txt != null) e.textContent = txt;
+				return e;
+			};
+			const LS = 'neku-admin';
+
+			/* nom propre pour dossiers/fichiers : sans accents, lettres/chiffres/_ uniquement */
+			const clean = s => String(s || '').normalize('NFD').replace(/[\u0300-\u036f]/g, '')
+				.replace(/[^A-Za-z0-9]+/g, '_').replace(/^_+|_+$/g, '');
+			const isHex = c => /^#[0-9a-f]{6}$/i.test(c || '');
+			const isHttp = u => /^https?:\/\//i.test(u || '');
+			const norm = p => String(p || '').replace(/^\//, '');
+			const pad = n => String(n).padStart(2, '0');
+			const dirOf = (source, name, nsfw) => `images/${clean(source)}/${clean(name)}/${nsfw ? 'NSFW' : 'SFW'}`;
+			const fileOf = (name, n, ext) => `${clean(name)}_${pad(n)}.${ext}`;
+			const extOf = f => ({
+				'image/png': 'png',
+				'image/jpeg': 'jpg',
+				'image/webp': 'webp',
+				'image/gif': 'gif'
+			})[f.type] || null;
+			const chipStyle = c => `color:${c};background:linear-gradient(135deg,${c}28,${c}10);border:1px solid ${c}65`;
+
+			/* prochain numéro libre pour un personnage (le premier fichier = 00) */
+			const nextNumber = srcs => Math.max(-1, ...srcs.map(s => {
+				const m = /_(\d+)\.[a-z0-9]+$/i.exec(s);
+				return m ? +m[1] : -1;
+			})) + 1;
+
+			const bytesToB64 = bytes => {
+				let s = '';
+				for (let i = 0; i < bytes.length; i += 0x8000) s += String.fromCharCode.apply(null, bytes.subarray(i, i + 0x8000));
+				return btoa(s);
+			};
+			const textToB64 = t => bytesToB64(new TextEncoder().encode(t));
+			const blobToB64 = async b => bytesToB64(new Uint8Array(await b.arrayBuffer()));
+			const b64ToText = b => new TextDecoder().decode(Uint8Array.from(atob(b.replace(/\s/g, '')), c => c.charCodeAt(0)));
+
+			async function toWebp(file) {
+				const bmp = await createImageBitmap(file);
+				const k = Math.min(1, 900 / bmp.width);
+				const c = document.createElement('canvas');
+				c.width = Math.round(bmp.width * k);
+				c.height = Math.round(bmp.height * k);
+				c.getContext('2d').drawImage(bmp, 0, 0, c.width, c.height);
+				return new Promise(res => c.toBlob(res, 'image/webp', .82));
+			}
+
+			function say(msg, kind) {
+				const s = $('#status');
+				s.textContent = msg || '';
+				s.className = kind || '';
+				s.hidden = !msg;
+			}
+
+			/* ════════════════════════ GITHUB ════════════════════════ */
+			let cfg = {
+				repo: '',
+				branch: 'main',
+				token: ''
+			};
+			let headSha = '',
+				treeSha = '',
+				paths = new Map(),
+				sources = [],
+				persos = [];
+			let busy = false;
+
+			async function gh(path, opts = {}) {
+				const r = await fetch(`https://api.github.com/repos/${cfg.repo}${path}`, {
+					method: opts.method || 'GET',
+					cache: 'no-store',
+					headers: {
+						Accept: 'application/vnd.github+json',
+						Authorization: `Bearer ${cfg.token}`,
+						'X-GitHub-Api-Version': '2022-11-28',
+						...(opts.body ? {
+							'Content-Type': 'application/json'
+						} : {}),
+					},
+					body: opts.body ? JSON.stringify(opts.body) : undefined,
+				});
+				if (!r.ok) {
+					let m = '';
+					try {
+						m = (await r.json()).message || '';
+					} catch (_) {}
+					const e = new Error(m || r.statusText);
+					e.status = r.status;
+					throw e;
+				}
+				return r.status === 204 ? null : r.json();
+			}
+
+			function explain(e) {
+				if (e && e.status === 401) return 'Token refusé ou expiré. Crée-en un nouveau et reconnecte-toi.';
+				if (e && (e.status === 403 || e.status === 404)) return 'Accès refusé ou dépôt/branche introuvable. Vérifie le nom du dépôt, la branche, et que le token a la permission « Contents : Read and write ».';
+				if (e && (e.status === 409 || e.status === 422)) return 'Le dépôt a changé pendant l\'envoi. Réessaie.';
+				if (e instanceof TypeError) return 'Connexion impossible. Vérifie ta connexion internet.';
+				return (e && e.message) || 'Erreur inconnue.';
+			}
+
+			async function readJSON(p) {
+				const sha = paths.get(p);
+				if (!sha) return [];
+				const b = await gh(`/git/blobs/${sha}`);
+				const v = JSON.parse(b64ToText(b.content) || '[]');
+				return Array.isArray(v) ? v : [];
+			}
+
+			async function load() {
+				const ref = await gh(`/git/ref/heads/${cfg.branch}`);
+				headSha = ref.object.sha;
+				const commitObj = await gh(`/git/commits/${headSha}`);
+				treeSha = commitObj.tree.sha;
+				const tree = await gh(`/git/trees/${treeSha}?recursive=1`);
+				if (tree.truncated) throw new Error('Dépôt trop volumineux pour cet outil.');
+				paths = new Map(tree.tree.filter(t => t.type === 'blob').map(t => [t.path, t.sha]));
+				sources = await readJSON('data/sources.json');
+				persos = await readJSON('data/personnages.json');
+			}
+
+			/* un seul commit pour toutes les modifications */
+			async function commit(changes, message) {
+				const entries = [];
+				for (const c of changes) {
+					if (c.remove) entries.push({
+						path: c.path,
+						mode: '100644',
+						type: 'blob',
+						sha: null
+					});
+					else if (c.sha) entries.push({
+						path: c.path,
+						mode: '100644',
+						type: 'blob',
+						sha: c.sha
+					});
+					else {
+						const b = await gh('/git/blobs', {
+							method: 'POST',
+							body: {
+								content: c.b64,
+								encoding: 'base64'
+							}
+						});
+						entries.push({
+							path: c.path,
+							mode: '100644',
+							type: 'blob',
+							sha: b.sha
+						});
+					}
+				}
+				const tree = await gh('/git/trees', {
+					method: 'POST',
+					body: {
+						base_tree: treeSha,
+						tree: entries
+					}
+				});
+				const cm = await gh('/git/commits', {
+					method: 'POST',
+					body: {
+						message,
+						tree: tree.sha,
+						parents: [headSha]
+					}
+				});
+				await gh(`/git/refs/heads/${cfg.branch}`, {
+					method: 'PATCH',
+					body: {
+						sha: cm.sha
+					}
+				});
+			}
+			const jsonFile = (path, data) => ({
+				path,
+				b64: textToB64(JSON.stringify(data, null, 2) + '\n')
+			});
+
+			/* exécute une action : données fraîches avant, rafraîchissement après */
+			async function guarded(fn, okMsg) {
+				if (busy) return false;
+				busy = true;
+				setBusy(true);
+				try {
+					say('Envoi en cours… ne ferme pas la page.');
+					await load();
+					await fn();
+					await load();
+					render();
+					say(okMsg + ' Visible sur le site dans 1 à 3 minutes.', 'ok');
+					return true;
+				} catch (e) {
+					console.error(e);
+					say(explain(e), 'err');
+					return false;
+				} finally {
+					busy = false;
+					setBusy(false);
+				}
+			}
+
+			function setBusy(b) {
+				$('#app').classList.toggle('busy', b);
+			}
+
+			/* ════════════════════════ ACTIONS : SOURCES ════════════════════════ */
+			function doAddSource(name, color) {
+				return guarded(async () => {
+					if (sources.some(s => s.name.toLowerCase() === name.toLowerCase() || clean(s.name).toLowerCase() === clean(name).toLowerCase()))
+						throw new Error('Cette source existe déjà (les majuscules ne comptent pas).');
+					await commit([jsonFile('data/sources.json', [...sources, {
+						name,
+						color: color.toLowerCase()
+					}])], `Admin : ajout de la source ${name}`);
+				}, `Source « ${name} » ajoutée.`);
+			}
+
+			function doSetColor(name, color) {
+				return guarded(async () => {
+					if (!sources.some(s => s.name === name)) throw new Error('Source introuvable.');
+					const next = sources.map(s => s.name === name ? {
+						...s,
+						color: color.toLowerCase()
+					} : s);
+					await commit([jsonFile('data/sources.json', next)], `Admin : couleur de la source ${name}`);
+				}, `Couleur de « ${name} » enregistrée.`);
+			}
+
+			function doDeleteSource(name) {
+				return guarded(async () => {
+					if (persos.some(p => p.source === name)) throw new Error('Cette source est encore utilisée par des personnages.');
+					await commit([jsonFile('data/sources.json', sources.filter(s => s.name !== name))], `Admin : suppression de la source ${name}`);
+				}, `Source « ${name} » supprimée.`);
+			}
+
+			/* ════════════════════════ ACTIONS : PERSONNAGES ════════════════════════ */
+			function doSaveCharacter(F) {
+				return guarded(async () => {
+					const idx = F.mode === 'edit' ? persos.findIndex(p => p.name === F.origName) : -1;
+					if (F.mode === 'edit' && idx < 0) throw new Error('Ce personnage n\'existe plus dans le dépôt.');
+					if (F.mode === 'new' && persos.some(p => p.source === F.source && clean(p.name).toLowerCase() === clean(F.name).toLowerCase()))
+						throw new Error('Un personnage de cette source porte déjà ce nom.');
+
+					const changes = [],
+						keep = [];
+
+					for (const im of F.existing) {
+						const old = norm(im.src);
+						if (im.remove) {
+							if (paths.has(old)) changes.push({
+								path: old,
+								remove: true
+							});
+							continue;
+						}
+						if (im.nsfw !== im.origNsfw && paths.has(old)) {
+							const np = `${dirOf(F.source, F.name, im.nsfw)}/${old.split('/').pop()}`;
+							if (np !== old) {
+								changes.push({
+									path: old,
+									remove: true
+								}, {
+									path: np,
+									sha: paths.get(old)
+								});
+								keep.push({
+									src: np,
+									nsfw: im.nsfw
+								});
+								continue;
+							}
+						}
+						keep.push({
+							src: im.src,
+							nsfw: im.nsfw
+						});
+					}
+
+					let n = nextNumber(F.existing.map(i => i.src));
+					for (const p of F.pending) {
+						const asWebp = F.webp && p.ext !== 'gif';
+						const blob = asWebp ? await toWebp(p.file) : p.file;
+						const ext = asWebp ? 'webp' : p.ext;
+						let path;
+						do {
+							path = `${dirOf(F.source, F.name, p.nsfw)}/${fileOf(F.name, n++, ext)}`;
+						} while (paths.has(path));
+						changes.push({
+							path,
+							b64: await blobToB64(blob)
+						});
+						keep.push({
+							src: path,
+							nsfw: p.nsfw
+						});
+					}
+
+					const entry = {
+						name: F.name.trim(),
+						source: F.source,
+						wiki: isHttp(F.wiki) ? F.wiki.trim() : '',
+						images: keep
+					};
+					const next = [...persos];
+					if (idx >= 0) next[idx] = entry;
+					else next.push(entry);
+					changes.push(jsonFile('data/personnages.json', next));
+					await commit(changes, `Admin : ${F.mode === 'edit' ? 'modification de' : 'ajout de'} ${entry.name}`);
+				}, F.mode === 'edit' ? `« ${F.name} » mis à jour.` : `« ${F.name} » ajouté.`);
+			}
+
+			function doDeleteCharacter(name) {
+				return guarded(async () => {
+					const p = persos.find(x => x.name === name);
+					if (!p) throw new Error('Personnage introuvable.');
+					const changes = (p.images || []).map(i => norm(i.src)).filter(x => paths.has(x)).map(path => ({
+						path,
+						remove: true
+					}));
+					changes.push(jsonFile('data/personnages.json', persos.filter(x => x !== p)));
+					await commit(changes, `Admin : suppression de ${name}`);
+				}, `« ${name} » supprimé.`);
+			}
+
+			/* ════════════════════════ INTERFACE : FORMULAIRE ════════════════════════ */
+			const newForm = () => ({
+				mode: 'new',
+				origName: '',
+				name: '',
+				source: '',
+				wiki: '',
+				existing: [],
+				pending: [],
+				webp: false
+			});
+			let F = newForm();
+
+			function thumbItem({
+				src,
+				blur,
+				path,
+				nsfw,
+				onNsfw,
+				removeLabel,
+				onRemove,
+				gone
+			}) {
+				const it = el('div', 'thumb' + (gone ? ' gone' : ''));
+				const ph = el('div', 'ph');
+				const im = new Image();
+				im.src = src;
+				im.alt = '';
+				if (blur) im.className = 'blur';
+				im.onerror = () => {
+					im.style.display = 'none';
+				};
+				ph.append(im);
+				const pth = el('div', 'pth', path);
+				const ctl = el('div', 'ctl');
+				const lb = el('label');
+				const cb = el('input');
+				cb.type = 'checkbox';
+				cb.checked = nsfw;
+				cb.addEventListener('change', () => onNsfw(cb.checked));
+				lb.append(cb, document.createTextNode(' NSFW'));
+				const x = el('button', 'x', removeLabel);
+				x.type = 'button';
+				x.addEventListener('click', onRemove);
+				ctl.append(lb, x);
+				it.append(ph, pth, ctl);
+				return it;
+			}
+
+			function previewPaths() {
+				let n = nextNumber(F.existing.map(i => i.src));
+				const nm = F.name.trim() || 'Nom',
+					so = F.source || 'Source';
+				return F.pending.map(p => {
+					const ext = (F.webp && p.ext !== 'gif') ? 'webp' : p.ext;
+					return `${dirOf(so, nm, p.nsfw)}/${fileOf(nm, n++, ext)}`;
+				});
+			}
+
+			function renderForm() {
+				const ex = $('#f-existing');
+				ex.replaceChildren();
+				$('#f-existing-box').hidden = !F.existing.length;
+				F.existing.forEach(im => {
+					ex.append(thumbItem({
+						src: norm(im.src),
+						blur: im.nsfw,
+						path: norm(im.src),
+						nsfw: im.nsfw,
+						onNsfw: v => {
+							im.nsfw = v;
+							renderForm();
+						},
+						removeLabel: im.remove ? 'Annuler' : 'Retirer',
+						onRemove: () => {
+							im.remove = !im.remove;
+							renderForm();
+						},
+						gone: im.remove,
+					}));
+				});
+
+				const pe = $('#f-pending');
+				pe.replaceChildren();
+				const pp = previewPaths();
+				F.pending.forEach((p, i) => {
+					pe.append(thumbItem({
+						src: p.url,
+						blur: p.nsfw,
+						path: pp[i],
+						nsfw: p.nsfw,
+						onNsfw: v => {
+							p.nsfw = v;
+							renderForm();
+						},
+						removeLabel: '✕',
+						onRemove: () => {
+							URL.revokeObjectURL(p.url);
+							F.pending.splice(i, 1);
+							renderForm();
+						},
+					}));
+				});
+				$('#f-bulk').hidden = !F.pending.length;
+
+				const edit = F.mode === 'edit';
+				$('#f-title').textContent = edit ? `Modifier : ${F.origName}` : 'Nouveau personnage';
+				$('#f-name').disabled = edit;
+				$('#f-source').disabled = edit;
+				$('#f-cancel').hidden = !edit;
+				$('#f-del').hidden = !edit;
+				$('#f-save').textContent = edit ? 'Enregistrer les modifications' : 'Publier sur le site';
+			}
+
+			function renderSourceSelect() {
+				const sel = $('#f-source');
+				sel.replaceChildren();
+				const first = el('option', '', '— Choisis une source —');
+				first.value = '';
+				sel.append(first);
+				sources.forEach(s => {
+					const o = el('option', '', s.name);
+					o.value = s.name;
+					sel.append(o);
+				});
+				if (F.source && !sources.some(s => s.name === F.source)) F.source = '';
+				sel.value = F.source;
+				$('#f-nosrc').hidden = sources.length > 0;
+			}
+
+			function resetForm() {
+				F.pending.forEach(p => URL.revokeObjectURL(p.url));
+				F = newForm();
+				$('#f-name').value = '';
+				$('#f-wiki').value = '';
+				$('#f-webp').checked = false;
+				$('#f-files').value = '';
+				renderSourceSelect();
+				renderForm();
+			}
+
+			function editCharacter(p) {
+				F.pending.forEach(x => URL.revokeObjectURL(x.url));
+				F = {
+					mode: 'edit',
+					origName: p.name,
+					name: p.name,
+					source: p.source,
+					wiki: p.wiki || '',
+					existing: (p.images || []).map(i => ({
+						src: i.src,
+						nsfw: !!i.nsfw,
+						origNsfw: !!i.nsfw,
+						remove: false
+					})),
+					pending: [],
+					webp: false,
+				};
+				$('#f-name').value = p.name;
+				$('#f-wiki').value = p.wiki || '';
+				$('#f-webp').checked = false;
+				renderSourceSelect();
+				renderForm();
+				$('#form').scrollIntoView({
+					behavior: 'smooth',
+					block: 'start'
+				});
+			}
+
+			function addFiles(list) {
+				const ok = [...list].filter(f => extOf(f));
+				if (ok.length < list.length) say('Certains fichiers ont été ignorés (formats acceptés : PNG, JPG, WebP, GIF).', 'err');
+				ok.forEach(f => F.pending.push({
+					file: f,
+					ext: extOf(f),
+					nsfw: false,
+					url: URL.createObjectURL(f)
+				}));
+				renderForm();
+			}
+
+			function wireForm() {
+				$('#f-name').addEventListener('input', e => {
+					F.name = e.target.value;
+					renderForm();
+				});
+				$('#f-source').addEventListener('change', e => {
+					F.source = e.target.value;
+					renderForm();
+				});
+				$('#f-wiki').addEventListener('input', e => {
+					F.wiki = e.target.value;
+				});
+				$('#f-webp').addEventListener('change', e => {
+					F.webp = e.target.checked;
+					renderForm();
+				});
+
+				const drop = $('#drop'),
+					input = $('#f-files');
+				drop.addEventListener('click', () => input.click());
+				drop.addEventListener('keydown', e => {
+					if (e.key === 'Enter' || e.key === ' ') {
+						e.preventDefault();
+						input.click();
+					}
+				});
+				input.addEventListener('change', () => {
+					addFiles(input.files);
+					input.value = '';
+				});
+				['dragenter', 'dragover'].forEach(t => drop.addEventListener(t, e => {
+					e.preventDefault();
+					drop.classList.add('over');
+				}));
+				['dragleave', 'drop'].forEach(t => drop.addEventListener(t, e => {
+					e.preventDefault();
+					drop.classList.remove('over');
+				}));
+				drop.addEventListener('drop', e => addFiles(e.dataTransfer.files));
+
+				$('#f-allsfw').addEventListener('click', () => {
+					F.pending.forEach(p => p.nsfw = false);
+					renderForm();
+				});
+				$('#f-allnsfw').addEventListener('click', () => {
+					F.pending.forEach(p => p.nsfw = true);
+					renderForm();
+				});
+
+				$('#f-save').addEventListener('click', async () => {
+					const name = F.name.trim();
+					if (!clean(name)) return say('Le nom doit contenir au moins une lettre ou un chiffre (a-z, 0-9).', 'err');
+					if (!F.source) return say('Choisis une source.', 'err');
+					if (F.wiki.trim() && !isHttp(F.wiki.trim())) return say('Le lien Wikipédia doit commencer par https://', 'err');
+					const total = F.pending.length + F.existing.filter(i => !i.remove).length;
+					if (!total) return say('Ajoute au moins une image.', 'err');
+					if (await doSaveCharacter(F)) resetForm();
+				});
+				$('#f-cancel').addEventListener('click', () => {
+					resetForm();
+					say('');
+				});
+				$('#f-del').addEventListener('click', async () => {
+					if (!confirm(`Supprimer « ${F.origName} » et toutes ses images ? Cette action est définitive.`)) return;
+					if (await doDeleteCharacter(F.origName)) resetForm();
+				});
+			}
+
+			function renderPersoList() {
+				const box = $('#p-list');
+				box.replaceChildren();
+				if (!persos.length) {
+					box.append(el('p', 'hint', 'Aucun personnage pour l\'instant.'));
+					return;
+				}
+				persos.forEach(p => {
+					const src = sources.find(s => s.name === p.source);
+					const row = el('div', 'perso-row');
+					row.append(el('span', 'nm', p.name));
+					const chip = el('span', 'chip', p.source || '—');
+					chip.style.cssText = chipStyle(src && isHex(src.color) ? src.color : '#a855f7');
+					const n = (p.images || []).length;
+					const nn = (p.images || []).filter(i => i.nsfw).length;
+					row.append(chip, el('span', 'hint', `${n} image${n > 1 ? 's' : ''}${nn ? ` (dont ${nn} NSFW)` : ''}`));
+					const b = el('button', 'ghost', 'Modifier');
+					b.addEventListener('click', () => editCharacter(p));
+					row.append(b);
+					box.append(row);
+				});
+			}
+
+			/* ════════════════════════ INTERFACE : SOURCES ════════════════════════ */
+			function paintPreview(box, name, color) {
+				box.replaceChildren();
+				const chip = el('span', 'chip', name || 'Nom de la source');
+				chip.style.cssText = chipStyle(color);
+				const mini = el('div', 'mini');
+				mini.append(el('div', 'mini-img'));
+				const foot = el('div', 'mini-foot', 'Personnage');
+				foot.style.borderTop = `2px solid ${color}45`;
+				mini.append(foot);
+				box.append(chip, mini);
+			}
+
+			function wireSourceForm() {
+				const name = $('#s-name'),
+					pick = $('#s-color'),
+					hex = $('#s-hex'),
+					prev = $('#s-preview');
+				const paint = () => paintPreview(prev, name.value.trim(), pick.value);
+				pick.addEventListener('input', () => {
+					hex.value = pick.value;
+					paint();
+				});
+				hex.addEventListener('input', () => {
+					if (isHex(hex.value)) {
+						pick.value = hex.value.toLowerCase();
+						paint();
+					}
+				});
+				name.addEventListener('input', paint);
+				paint();
+				$('#s-add').addEventListener('click', async () => {
+					const n = name.value.trim();
+					if (!clean(n)) return say('Le nom doit contenir au moins une lettre ou un chiffre (a-z, 0-9).', 'err');
+					if (!isHex(hex.value)) return say('Couleur invalide (exemple : #60a5fa).', 'err');
+					if (await doAddSource(n, hex.value)) {
+						name.value = '';
+						paint();
+					}
+				});
+			}
+
+			function renderSources() {
+				const box = $('#src-list');
+				box.replaceChildren();
+				if (!sources.length) {
+					box.append(el('p', 'hint', 'Aucune source pour l\'instant.'));
+					return;
+				}
+				sources.forEach(s => {
+					const used = persos.filter(p => p.source === s.name).length;
+					const row = el('div', 'src-row');
+					const start = isHex(s.color) ? s.color.toLowerCase() : '#a855f7';
+					const chip = el('span', 'chip', s.name);
+					chip.style.cssText = chipStyle(start);
+					const pick = el('input');
+					pick.type = 'color';
+					pick.value = start;
+					const hex = el('input', 'hex');
+					hex.type = 'text';
+					hex.maxLength = 7;
+					hex.value = start;
+					const sync = v => {
+						if (isHex(v)) {
+							pick.value = v.toLowerCase();
+							hex.value = v.toLowerCase();
+							chip.style.cssText = chipStyle(v);
+						}
+					};
+					pick.addEventListener('input', () => sync(pick.value));
+					hex.addEventListener('input', () => sync(hex.value));
+					const save = el('button', 'ghost', 'Enregistrer la couleur');
+					save.addEventListener('click', () => {
+						if (!isHex(hex.value)) return say('Couleur invalide (exemple : #60a5fa).', 'err');
+						doSetColor(s.name, hex.value);
+					});
+					const del = el('button', 'danger', used ? `Utilisée par ${used} perso.` : 'Supprimer');
+					del.disabled = used > 0;
+					del.addEventListener('click', () => {
+						if (confirm(`Supprimer la source « ${s.name} » ?`)) doDeleteSource(s.name);
+					});
+					row.append(chip, pick, hex, save, del);
+					box.append(row);
+				});
+			}
+
+			/* ════════════════════════ CONNEXION ET DÉMARRAGE ════════════════════════ */
+			function render() {
+				renderSources();
+				renderSourceSelect();
+				renderPersoList();
+				renderForm();
+			}
+
+			function showApp() {
+				$('#login').hidden = true;
+				$('#app').hidden = false;
+				$('#logout').hidden = false;
+			}
+
+			function showLogin() {
+				$('#login').hidden = false;
+				$('#app').hidden = true;
+				$('#logout').hidden = true;
+			}
+
+			async function connect(c) {
+				cfg = c;
+				say('Connexion…');
+				try {
+					await load();
+					localStorage.setItem(LS, JSON.stringify(cfg));
+					showApp();
+					render();
+					say('Connecté.', 'ok');
+					setTimeout(() => {
+						if ($('#status').className === 'ok') say('');
+					}, 2500);
+				} catch (e) {
+					console.error(e);
+					showLogin();
+					say(explain(e), 'err');
+				}
+			}
+
+			function guessRepo() {
+				const h = location.hostname;
+				if (!h.endsWith('.github.io')) return '';
+				const owner = h.split('.')[0];
+				const seg = location.pathname.split('/')[1];
+				return `${owner}/${seg && !seg.endsWith('.html') ? seg : h}`;
+			}
+
+			function init() {
+				wireForm();
+				wireSourceForm();
+
+				document.querySelectorAll('.tabs button').forEach(b => b.addEventListener('click', () => {
+					document.querySelectorAll('.tabs button').forEach(x => x.classList.toggle('on', x === b));
+					$('#tab-persos').hidden = b.dataset.tab !== 'persos';
+					$('#tab-sources').hidden = b.dataset.tab !== 'sources';
+				}));
+
+				$('#l-go').addEventListener('click', () => {
+					const repo = $('#l-repo').value.trim().replace(/^https?:\/\/github\.com\//i, '').replace(/\/$/, '');
+					const branch = $('#l-branch').value.trim() || 'main';
+					const token = $('#l-token').value.trim();
+					if (!/^[\w.-]+\/[\w.-]+$/.test(repo)) return say('Le dépôt doit être au format utilisateur/nom-du-dépôt.', 'err');
+					if (!token) return say('Colle ton token GitHub.', 'err');
+					connect({
+						repo,
+						branch,
+						token
+					});
+				});
+
+				$('#logout').addEventListener('click', () => {
+					localStorage.removeItem(LS);
+					cfg = {
+						repo: '',
+						branch: 'main',
+						token: ''
+					};
+					$('#l-token').value = '';
+					showLogin();
+					say('Déconnecté. Le token a été effacé de ce navigateur.', 'ok');
+				});
+
+				let saved = null;
+				try {
+					saved = JSON.parse(localStorage.getItem(LS) || 'null');
+				} catch (_) {}
+				$('#l-repo').value = (saved && saved.repo) || guessRepo();
+				$('#l-branch').value = (saved && saved.branch) || 'main';
+				if (saved && saved.token) {
+					$('#l-token').value = saved.token;
+					connect(saved);
+				}
+			}
+
+			init();
+		</script>
+	</body>
+
 </html>
