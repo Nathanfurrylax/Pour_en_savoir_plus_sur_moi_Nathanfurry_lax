@@ -144,8 +144,14 @@ Une source est un univers (anime, jeu, série…). Chaque source a une couleur, 
     "source": "Vocaloid",
     "wiki": "https://fr.wikipedia.org/wiki/Hatsune_Miku",
     "images": [
-      { "src": "images/Vocaloid/Hatsune_Miku/SFW/Hatsune_Miku_00.png",  "nsfw": false },
-      { "src": "images/Vocaloid/Hatsune_Miku/NSFW/Hatsune_Miku_01.png", "nsfw": true }
+      {
+        "src": "images/Vocaloid/Hatsune_Miku/SFW/Hatsune_Miku_00.png",
+        "nsfw": false
+      },
+      {
+        "src": "images/Vocaloid/Hatsune_Miku/NSFW/Hatsune_Miku_01.png",
+        "nsfw": true
+      }
     ]
   }
 ]
