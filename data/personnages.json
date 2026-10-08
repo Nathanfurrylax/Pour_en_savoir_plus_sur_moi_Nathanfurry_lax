@@ -17,5 +17,155 @@
         "nsfw": false
       }
     ]
+  },
+  {
+    "name": "Loona",
+    "source": "Helluva Boss",
+    "wiki": "https://fr.wikipedia.org/wiki/Helluva_Boss",
+    "images": []
+  },
+  {
+    "name": "Tous les personnages",
+    "source": "Animal Crossing",
+    "wiki": "https://fr.wikipedia.org/wiki/Animal_Crossing",
+    "images": []
+  },
+  {
+    "name": "Sylveon",
+    "source": "Pokémon",
+    "wiki": "https://fr.wikipedia.org/wiki/Nymphali",
+    "images": []
+  },
+  {
+    "name": "Vulpix",
+    "source": "Pokémon",
+    "wiki": "https://fr.wikipedia.org/wiki/Goupix",
+    "images": []
+  },
+  {
+    "name": "Lopunny",
+    "source": "Pokémon",
+    "wiki": "https://fr.wikipedia.org/wiki/Laporeille",
+    "images": []
+  },
+  {
+    "name": "Goupelin",
+    "source": "Pokémon",
+    "wiki": "https://fr.wikipedia.org/wiki/Goupelin",
+    "images": []
+  },
+  {
+    "name": "Meowscarade",
+    "source": "Pokémon",
+    "wiki": "https://fr.wikipedia.org/wiki/Miasscarade",
+    "images": []
+  },
+  {
+    "name": "Gardevoir",
+    "source": "Pokémon",
+    "wiki": "https://fr.wikipedia.org/wiki/Gardevoir",
+    "images": []
+  },
+  {
+    "name": "Raphtalia",
+    "source": "The Rising of the Shield Hero",
+    "wiki": "https://fr.wikipedia.org/wiki/The_Rising_of_the_Shield_Hero",
+    "images": []
+  },
+  {
+    "name": "Kafka",
+    "source": "Honkai: Star Rail",
+    "wiki": "https://fr.wikipedia.org/wiki/Honkai:_Star_Rail",
+    "images": []
+  },
+  {
+    "name": "Aqua",
+    "source": "Konosuba",
+    "wiki": "https://fr.wikipedia.org/wiki/Kono_subarashii_sekai_ni_shukufuku_wo!",
+    "images": []
+  },
+  {
+    "name": "Erza Scarlet",
+    "source": "Fairy Tail",
+    "wiki": "https://fr.wikipedia.org/wiki/Erza_Scarlet",
+    "images": []
+  },
+  {
+    "name": "Marine Kitagawa",
+    "source": "My Dress-Up Darling",
+    "wiki": "https://fr.wikipedia.org/wiki/My_Dress-Up_Darling",
+    "images": []
+  },
+  {
+    "name": "Frieren",
+    "source": "Frieren",
+    "wiki": "https://fr.wikipedia.org/wiki/Frieren",
+    "images": []
+  },
+  {
+    "name": "Yumemizuki",
+    "source": "Genshin Impact",
+    "wiki": "https://fr.wikipedia.org/wiki/Genshin_Impact",
+    "images": []
+  },
+  {
+    "name": "Furina",
+    "source": "Genshin Impact",
+    "wiki": "https://fr.wikipedia.org/wiki/Genshin_Impact",
+    "images": []
+  },
+  {
+    "name": "Mavuika",
+    "source": "Genshin Impact",
+    "wiki": "https://fr.wikipedia.org/wiki/Genshin_Impact",
+    "images": []
+  },
+  {
+    "name": "Clove",
+    "source": "Valorant",
+    "wiki": "https://fr.wikipedia.org/wiki/Valorant",
+    "images": []
+  },
+  {
+    "name": "Néon",
+    "source": "Valorant",
+    "wiki": "https://fr.wikipedia.org/wiki/Valorant",
+    "images": []
+  },
+  {
+    "name": "Apogee",
+    "source": "tinygaypirate",
+    "wiki": "",
+    "images": []
+  },
+  {
+    "name": "Mita",
+    "source": "MiSide",
+    "wiki": "",
+    "images": []
+  },
+  {
+    "name": "Kaoruko Waguri",
+    "source": "Bloom",
+    "wiki": "",
+    "images": []
+  },
+  {
+    "name": "Himiko Toga",
+    "source": "My Hero Academia",
+    "wiki": "https://fr.wikipedia.org/wiki/My_Hero_Academia",
+    "images": []
+  },
+  {
+    "name": "Nagatoro",
+    "source": "Nagatoro",
+    "wiki": "https://fr.wikipedia.org/wiki/Arr%C3%AAte_de_me_chauffer,_Nagatoro",
+    "images": []
+  },
+  {
+    "name": "Sakuragi Mai",
+    "source": "Bunny Girl Senpai",
+    "wiki": "https://fr.wikipedia.org/wiki/Rascal_Does_Not_Dream_of_Bunny_Girl_Senpai",
+    "images": []
   }
 ]
