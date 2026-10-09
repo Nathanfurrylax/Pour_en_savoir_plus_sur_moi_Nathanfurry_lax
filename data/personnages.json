@@ -305,7 +305,108 @@
     "name": "Sakuragi Mai",
     "source": "Bunny Girl Senpai",
     "wiki": "https://fr.wikipedia.org/wiki/Rascal_Does_Not_Dream_of_Bunny_Girl_Senpai",
-    "images": []
+    "images": [
+      {
+        "src": "images/Bunny_Girl_Senpai/Sakuragi_Mai/SFW/Sakuragi_Mai_00.webp",
+        "nsfw": false
+      },
+      {
+        "src": "images/Bunny_Girl_Senpai/Sakuragi_Mai/SFW/Sakuragi_Mai_01.webp",
+        "nsfw": false
+      },
+      {
+        "src": "images/Bunny_Girl_Senpai/Sakuragi_Mai/SFW/Sakuragi_Mai_02.webp",
+        "nsfw": false
+      },
+      {
+        "src": "images/Bunny_Girl_Senpai/Sakuragi_Mai/SFW/Sakuragi_Mai_03.webp",
+        "nsfw": false
+      },
+      {
+        "src": "images/Bunny_Girl_Senpai/Sakuragi_Mai/SFW/Sakuragi_Mai_04.webp",
+        "nsfw": false
+      },
+      {
+        "src": "images/Bunny_Girl_Senpai/Sakuragi_Mai/NSFW/Sakuragi_Mai_05.webp",
+        "nsfw": true
+      },
+      {
+        "src": "images/Bunny_Girl_Senpai/Sakuragi_Mai/SFW/Sakuragi_Mai_06.webp",
+        "nsfw": false
+      },
+      {
+        "src": "images/Bunny_Girl_Senpai/Sakuragi_Mai/SFW/Sakuragi_Mai_07.webp",
+        "nsfw": false
+      },
+      {
+        "src": "images/Bunny_Girl_Senpai/Sakuragi_Mai/SFW/Sakuragi_Mai_08.webp",
+        "nsfw": false
+      },
+      {
+        "src": "images/Bunny_Girl_Senpai/Sakuragi_Mai/SFW/Sakuragi_Mai_09.webp",
+        "nsfw": false
+      },
+      {
+        "src": "images/Bunny_Girl_Senpai/Sakuragi_Mai/NSFW/Sakuragi_Mai_10.webp",
+        "nsfw": true
+      },
+      {
+        "src": "images/Bunny_Girl_Senpai/Sakuragi_Mai/NSFW/Sakuragi_Mai_11.webp",
+        "nsfw": true
+      },
+      {
+        "src": "images/Bunny_Girl_Senpai/Sakuragi_Mai/SFW/Sakuragi_Mai_12.webp",
+        "nsfw": false
+      },
+      {
+        "src": "images/Bunny_Girl_Senpai/Sakuragi_Mai/SFW/Sakuragi_Mai_13.webp",
+        "nsfw": false
+      },
+      {
+        "src": "images/Bunny_Girl_Senpai/Sakuragi_Mai/NSFW/Sakuragi_Mai_14.webp",
+        "nsfw": true
+      },
+      {
+        "src": "images/Bunny_Girl_Senpai/Sakuragi_Mai/SFW/Sakuragi_Mai_15.webp",
+        "nsfw": false
+      },
+      {
+        "src": "images/Bunny_Girl_Senpai/Sakuragi_Mai/NSFW/Sakuragi_Mai_16.webp",
+        "nsfw": true
+      },
+      {
+        "src": "images/Bunny_Girl_Senpai/Sakuragi_Mai/NSFW/Sakuragi_Mai_17.webp",
+        "nsfw": true
+      },
+      {
+        "src": "images/Bunny_Girl_Senpai/Sakuragi_Mai/SFW/Sakuragi_Mai_18.webp",
+        "nsfw": false
+      },
+      {
+        "src": "images/Bunny_Girl_Senpai/Sakuragi_Mai/NSFW/Sakuragi_Mai_19.webp",
+        "nsfw": true
+      },
+      {
+        "src": "images/Bunny_Girl_Senpai/Sakuragi_Mai/NSFW/Sakuragi_Mai_20.webp",
+        "nsfw": true
+      },
+      {
+        "src": "images/Bunny_Girl_Senpai/Sakuragi_Mai/SFW/Sakuragi_Mai_21.webp",
+        "nsfw": false
+      },
+      {
+        "src": "images/Bunny_Girl_Senpai/Sakuragi_Mai/NSFW/Sakuragi_Mai_22.webp",
+        "nsfw": true
+      },
+      {
+        "src": "images/Bunny_Girl_Senpai/Sakuragi_Mai/SFW/Sakuragi_Mai_23.webp",
+        "nsfw": false
+      },
+      {
+        "src": "images/Bunny_Girl_Senpai/Sakuragi_Mai/NSFW/Sakuragi_Mai_24.webp",
+        "nsfw": true
+      }
+    ]
   },
   {
     "name": "Mirko",
