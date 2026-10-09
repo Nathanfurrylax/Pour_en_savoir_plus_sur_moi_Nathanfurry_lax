@@ -146,7 +146,12 @@
     "name": "Raphtalia",
     "source": "The Rising of the Shield Hero",
     "wiki": "https://fr.wikipedia.org/wiki/The_Rising_of_the_Shield_Hero",
-    "images": []
+    "images": [
+      {
+        "src": "images/The_Rising_of_the_Shield_Hero/Raphtalia/SFW/Raphtalia_00.webp",
+        "nsfw": false
+      }
+    ]
   },
   {
     "name": "Kafka",
