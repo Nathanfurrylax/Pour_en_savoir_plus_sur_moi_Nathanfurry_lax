@@ -179,7 +179,12 @@
     "name": "Erza Scarlet",
     "source": "Fairy Tail",
     "wiki": "https://fr.wikipedia.org/wiki/Erza_Scarlet",
-    "images": []
+    "images": [
+      {
+        "src": "images/Fairy_Tail/Erza_Scarlet/SFW/Erza_Scarlet_00.webp",
+        "nsfw": false
+      }
+    ]
   },
   {
     "name": "Marine Kitagawa",
