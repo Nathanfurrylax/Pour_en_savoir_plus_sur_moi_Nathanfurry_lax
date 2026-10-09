@@ -236,5 +236,72 @@
     "source": "Bunny Girl Senpai",
     "wiki": "https://fr.wikipedia.org/wiki/Rascal_Does_Not_Dream_of_Bunny_Girl_Senpai",
     "images": []
+  },
+  {
+    "name": "Mirko",
+    "source": "My Hero Academia",
+    "wiki": "",
+    "images": [
+      {
+        "src": "images/My_Hero_Academia/Mirko/SFW/Mirko_00.webp",
+        "nsfw": false
+      },
+      {
+        "src": "images/My_Hero_Academia/Mirko/SFW/Mirko_01.webp",
+        "nsfw": false
+      },
+      {
+        "src": "images/My_Hero_Academia/Mirko/SFW/Mirko_02.webp",
+        "nsfw": false
+      },
+      {
+        "src": "images/My_Hero_Academia/Mirko/SFW/Mirko_03.webp",
+        "nsfw": false
+      },
+      {
+        "src": "images/My_Hero_Academia/Mirko/SFW/Mirko_04.webp",
+        "nsfw": false
+      },
+      {
+        "src": "images/My_Hero_Academia/Mirko/SFW/Mirko_05.webp",
+        "nsfw": false
+      },
+      {
+        "src": "images/My_Hero_Academia/Mirko/SFW/Mirko_06.webp",
+        "nsfw": false
+      },
+      {
+        "src": "images/My_Hero_Academia/Mirko/SFW/Mirko_07.webp",
+        "nsfw": false
+      },
+      {
+        "src": "images/My_Hero_Academia/Mirko/SFW/Mirko_08.webp",
+        "nsfw": false
+      },
+      {
+        "src": "images/My_Hero_Academia/Mirko/SFW/Mirko_09.webp",
+        "nsfw": false
+      },
+      {
+        "src": "images/My_Hero_Academia/Mirko/SFW/Mirko_10.webp",
+        "nsfw": false
+      },
+      {
+        "src": "images/My_Hero_Academia/Mirko/SFW/Mirko_11.webp",
+        "nsfw": false
+      },
+      {
+        "src": "images/My_Hero_Academia/Mirko/SFW/Mirko_12.webp",
+        "nsfw": false
+      },
+      {
+        "src": "images/My_Hero_Academia/Mirko/SFW/Mirko_13.webp",
+        "nsfw": false
+      },
+      {
+        "src": "images/My_Hero_Academia/Mirko/SFW/Mirko_14.webp",
+        "nsfw": false
+      }
+    ]
   }
 ]
