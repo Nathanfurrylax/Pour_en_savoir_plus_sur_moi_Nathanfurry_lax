@@ -22,7 +22,28 @@
     "name": "Loona",
     "source": "Helluva Boss - Hazbin Hôtel",
     "wiki": "https://hazbin-hotel.fandom.com/fr/wiki/Loona",
-    "images": []
+    "images": [
+      {
+        "src": "images/Helluva_Boss_Hazbin_Hotel/Loona/SFW/Loona_00.webp",
+        "nsfw": false
+      },
+      {
+        "src": "images/Helluva_Boss_Hazbin_Hotel/Loona/SFW/Loona_01.webp",
+        "nsfw": false
+      },
+      {
+        "src": "images/Helluva_Boss_Hazbin_Hotel/Loona/SFW/Loona_02.webp",
+        "nsfw": false
+      },
+      {
+        "src": "images/Helluva_Boss_Hazbin_Hotel/Loona/SFW/Loona_03.webp",
+        "nsfw": false
+      },
+      {
+        "src": "images/Helluva_Boss_Hazbin_Hotel/Loona/SFW/Loona_04.webp",
+        "nsfw": false
+      }
+    ]
   },
   {
     "name": "Tous les personnages",
