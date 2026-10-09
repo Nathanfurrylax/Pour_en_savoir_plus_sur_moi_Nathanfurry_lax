@@ -6,6 +6,8 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<meta name="robots" content="noindex,nofollow">
 		<title>Administration — Neku</title>
+		<!-- Intégration de Font Awesome pour les icônes -->
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 		<style>
 			* {
 				margin: 0;
@@ -50,7 +52,10 @@
 				font-size: 1.1rem;
 				letter-spacing: 3px;
 				text-transform: uppercase;
-				color: var(--pink)
+				color: var(--pink);
+				display: flex;
+				align-items: center;
+				gap: .6rem;
 			}
 
 			h2 {
@@ -58,7 +63,10 @@
 				letter-spacing: 2px;
 				text-transform: uppercase;
 				color: var(--pink);
-				margin-bottom: .8rem
+				margin-bottom: .8rem;
+				display: flex;
+				align-items: center;
+				gap: .5rem;
 			}
 
 			.card {
@@ -75,7 +83,9 @@
 			}
 
 			label {
-				display: block;
+				display: flex;
+				align-items: center;
+				gap: .4rem;
 				font-size: .78rem;
 				font-weight: 700;
 				color: var(--muted);
@@ -117,6 +127,9 @@
 			}
 
 			button {
+				display: inline-flex;
+				align-items: center;
+				gap: .4rem;
 				padding: .55rem 1rem;
 				border-radius: 30px;
 				border: 0;
@@ -159,6 +172,7 @@
 
 			.tabs {
 				display: flex;
+				flex-wrap: wrap;
 				gap: .5rem;
 				margin-bottom: 1rem
 			}
@@ -192,7 +206,10 @@
 
 			summary {
 				cursor: pointer;
-				color: var(--cyan)
+				color: var(--cyan);
+				display: inline-flex;
+				align-items: center;
+				gap: .4rem;
 			}
 
 			details ol {
@@ -209,7 +226,10 @@
 
 			/* Aperçu couleur (même rendu que sur le site) */
 			.chip {
-				display: inline-block;
+				display: inline-flex;
+				align-items: center;
+				justify-content: center;
+				gap: .4rem;
 				padding: .25rem 1rem;
 				border-radius: 30px;
 				font-size: .65rem;
@@ -291,7 +311,16 @@
 				text-align: center;
 				color: var(--muted);
 				cursor: pointer;
-				transition: background .2s, border-color .2s
+				transition: background .2s, border-color .2s;
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				gap: .5rem;
+			}
+
+			.drop i {
+				font-size: 1.8rem;
+				color: var(--purple);
 			}
 
 			.drop:hover,
@@ -384,6 +413,56 @@
 				font-weight: 400
 			}
 
+			/* Kinks */
+			.k-row {
+				display: flex;
+				gap: .4rem;
+				align-items: center;
+				margin-bottom: .45rem
+			}
+
+			.k-row input {
+				flex: 1;
+				min-width: 0
+			}
+
+			button.icon {
+				padding: .5rem .7rem
+			}
+
+			.grow {
+				flex: 1;
+				min-width: 12rem
+			}
+
+			.kinks-prev {
+				display: grid;
+				grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+				gap: .6rem;
+				margin-top: .5rem
+			}
+
+			.kink {
+				background: linear-gradient(135deg, rgba(224, 64, 251, .13), rgba(168, 85, 247, .13));
+				border: 1px solid rgba(224, 64, 251, .38);
+				border-radius: .6rem;
+				padding: .8rem .5rem;
+				text-align: center;
+				font-size: .72rem;
+				font-weight: 700;
+				color: #f0abfc;
+				letter-spacing: 1px;
+				text-transform: uppercase
+			}
+
+			.dirty {
+				display: inline-flex;
+				align-items: center;
+				gap: .4rem;
+				font-size: .78rem;
+				color: #fcd34d
+			}
+
 			#status {
 				position: fixed;
 				left: 0;
@@ -393,7 +472,11 @@
 				text-align: center;
 				font-size: .85rem;
 				background: #13102e;
-				border-top: 1px solid var(--line)
+				border-top: 1px solid var(--line);
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				gap: .5rem;
 			}
 
 			#status.ok {
@@ -411,24 +494,28 @@
 	<body>
 
 		<header>
-			<h1>Administration · Neku</h1>
-			<button id="logout" class="ghost" hidden>Se déconnecter</button>
+			<h1><i class="fa-solid fa-sliders"></i> Administration · Neku</h1>
+			<button id="logout" class="ghost" hidden><i class="fa-solid fa-right-from-bracket"></i> Se déconnecter</button>
 		</header>
 
 		<main>
 			<!-- ═════ CONNEXION ═════ -->
 			<section id="login" class="card">
-				<h2>Connexion</h2>
+				<h2><i class="fa-solid fa-key"></i> Connexion</h2>
 				<p class="hint">Cette page modifie ton site directement sur GitHub. Il faut un « token » (une clé personnelle), qui reste uniquement dans ce navigateur.</p>
-				<label for="l-repo">Dépôt GitHub (utilisateur/nom-du-dépôt)</label>
+				
+				<label for="l-repo"><i class="fa-brands fa-github"></i> Dépôt GitHub (utilisateur/nom-du-dépôt)</label>
 				<input id="l-repo" type="text" placeholder="ton-pseudo/ton-depot" autocomplete="off">
-				<label for="l-branch">Branche</label>
+				
+				<label for="l-branch"><i class="fa-solid fa-code-branch"></i> Branche</label>
 				<input id="l-branch" type="text" value="main" autocomplete="off">
-				<label for="l-token">Token GitHub</label>
+				
+				<label for="l-token"><i class="fa-solid fa-shield-halved"></i> Token GitHub</label>
 				<input id="l-token" type="password" placeholder="github_pat_…" autocomplete="off">
-				<div class="row"><button id="l-go">Se connecter</button></div>
+				
+				<div class="row"><button id="l-go"><i class="fa-solid fa-plug"></i> Se connecter</button></div>
 				<details>
-					<summary>Comment obtenir mon token ?</summary>
+					<summary><i class="fa-solid fa-circle-question"></i> Comment obtenir mon token ?</summary>
 					<ol>
 						<li>Va sur <a href="https://github.com/settings/personal-access-tokens/new" target="_blank" rel="noopener noreferrer">github.com/settings/personal-access-tokens/new</a>.</li>
 						<li><b>Token name</b> : par exemple « admin site ». <b>Expiration</b> : choisis la durée maximale.</li>
@@ -442,52 +529,56 @@
 			<!-- ═════ APPLICATION ═════ -->
 			<div id="app" hidden>
 				<div class="tabs">
-					<button data-tab="persos" class="on">Personnages</button>
-					<button data-tab="sources">Sources</button>
+					<button data-tab="persos" class="on"><i class="fa-solid fa-users"></i> Personnages</button>
+					<button data-tab="sources"><i class="fa-solid fa-folder-open"></i> Sources</button>
+					<button data-tab="kinks"><i class="fa-solid fa-heart"></i> Kinks</button>
 				</div>
 
 				<!-- Personnages -->
 				<section id="tab-persos">
 					<div class="card" id="form">
-						<h2 id="f-title">Nouveau personnage</h2>
+						<h2 id="f-title"><i class="fa-solid fa-user-plus"></i> Nouveau personnage</h2>
 
-						<label for="f-name">Nom du personnage</label>
+						<label for="f-name"><i class="fa-solid fa-signature"></i> Nom du personnage</label>
 						<input id="f-name" type="text" autocomplete="off" placeholder="Hatsune Miku">
 
-						<label for="f-source">Source</label>
+						<label for="f-source"><i class="fa-solid fa-layer-group"></i> Source</label>
 						<select id="f-source"></select>
 						<p class="hint" id="f-nosrc" hidden>Crée d'abord une source dans l'onglet « Sources ».</p>
 
-						<label for="f-wiki">Lien Wikipédia (facultatif)</label>
+						<label for="f-wiki"><i class="fa-brands fa-wikipedia-w"></i> Lien Wikipédia (facultatif)</label>
 						<input id="f-wiki" type="url" autocomplete="off" placeholder="https://fr.wikipedia.org/wiki/…">
 
 						<div id="f-existing-box" hidden>
-							<label>Images déjà en ligne</label>
+							<label><i class="fa-regular fa-images"></i> Images déjà en ligne</label>
 							<div class="thumbs" id="f-existing"></div>
 						</div>
 
-						<label>Ajouter des images</label>
-						<div class="drop" id="drop" tabindex="0" role="button">Glisse tes images ici (plusieurs à la fois) ou clique pour les choisir</div>
+						<label><i class="fa-solid fa-cloud-arrow-up"></i> Ajouter des images</label>
+						<div class="drop" id="drop" tabindex="0" role="button">
+							<i class="fa-solid fa-images"></i>
+							<span>Glisse tes images ici (plusieurs à la fois) ou clique pour les choisir</span>
+						</div>
 						<input id="f-files" type="file" accept="image/png,image/jpeg,image/webp,image/gif" multiple hidden>
 
 						<div class="row" id="f-bulk" hidden>
-							<button class="ghost" id="f-allsfw" type="button">Tout en SFW</button>
-							<button class="ghost" id="f-allnsfw" type="button">Tout en NSFW</button>
+							<button class="ghost" id="f-allsfw" type="button"><i class="fa-solid fa-eye"></i> Tout en SFW</button>
+							<button class="ghost" id="f-allnsfw" type="button"><i class="fa-solid fa-eye-slash"></i> Tout en NSFW</button>
 						</div>
 						<div class="thumbs" id="f-pending"></div>
 
-						<label class="chk"><input type="checkbox" id="f-webp"> Alléger les images (conversion en WebP, 900 px de large maximum)</label>
+						<label class="chk"><input type="checkbox" id="f-webp"> <i class="fa-solid fa-compress"></i> Alléger les images (conversion en WebP, 900 px de large maximum)</label>
 
 						<div class="row">
-							<button id="f-save">Publier sur le site</button>
-							<button id="f-cancel" class="ghost" hidden>Annuler la modification</button>
-							<button id="f-del" class="danger" hidden>Supprimer ce personnage</button>
+							<button id="f-save"><i class="fa-solid fa-paper-plane"></i> Publier sur le site</button>
+							<button id="f-cancel" class="ghost" hidden><i class="fa-solid fa-xmark"></i> Annuler la modification</button>
+							<button id="f-del" class="danger" hidden><i class="fa-solid fa-trash-can"></i> Supprimer ce personnage</button>
 						</div>
 						<p class="hint" style="margin-top:.7rem">Les fichiers sont rangés automatiquement dans <code>images/source/personnage/SFW</code> ou <code>NSFW</code>, et nommés <code>Nom_du_personnage_00</code>, <code>_01</code>…</p>
 					</div>
 
 					<div class="card">
-						<h2>Personnages existants</h2>
+						<h2><i class="fa-solid fa-list-ul"></i> Personnages existants</h2>
 						<div id="p-list"></div>
 					</div>
 				</section>
@@ -495,21 +586,46 @@
 				<!-- Sources -->
 				<section id="tab-sources" hidden>
 					<div class="card">
-						<h2>Nouvelle source</h2>
-						<label for="s-name">Nom de la source</label>
+						<h2><i class="fa-solid fa-folder-plus"></i> Nouvelle source</h2>
+						<label for="s-name"><i class="fa-solid fa-tag"></i> Nom de la source</label>
 						<input id="s-name" type="text" autocomplete="off" placeholder="Vocaloid">
-						<label for="s-color">Couleur</label>
+						<label for="s-color"><i class="fa-solid fa-palette"></i> Couleur</label>
 						<div class="row" style="margin-top:0">
 							<input id="s-color" type="color" value="#60a5fa">
 							<input id="s-hex" class="hex" type="text" maxlength="7" value="#60a5fa" autocomplete="off">
 						</div>
 						<div class="preview" id="s-preview"></div>
-						<div class="row"><button id="s-add">Ajouter la source</button></div>
+						<div class="row"><button id="s-add"><i class="fa-solid fa-plus"></i> Ajouter la source</button></div>
 					</div>
 					<div class="card">
-						<h2>Sources existantes</h2>
+						<h2><i class="fa-solid fa-boxes-stacked"></i> Sources existantes</h2>
 						<p class="hint" style="margin-bottom:.5rem">Le nom d'une source ne peut pas être changé ici (ses images sont rangées dans un dossier à son nom).</p>
 						<div id="src-list"></div>
+					</div>
+				</section>
+
+				<!-- Kinks -->
+				<section id="tab-kinks" hidden>
+					<div class="card">
+						<h2><i class="fa-solid fa-list-check"></i> Kinks affichés sur le site</h2>
+						<p class="hint" style="margin-bottom:.8rem">Modifie les noms, change l'ordre avec les flèches, ajoute ou supprime. Rien n'est publié tant que tu n'as pas cliqué sur « Publier ». Sur le site, les noms s'affichent en majuscules.</p>
+						<div id="k-list"></div>
+
+						<label for="k-new"><i class="fa-solid fa-plus"></i> Ajouter un kink</label>
+						<div class="row" style="margin-top:0">
+							<input id="k-new" class="grow" type="text" maxlength="30" autocomplete="off" placeholder="Nom du kink">
+							<button id="k-add" class="ghost" type="button"><i class="fa-solid fa-plus"></i> Ajouter</button>
+						</div>
+
+						<div class="row">
+							<button id="k-save"><i class="fa-solid fa-paper-plane"></i> Publier sur le site</button>
+							<button id="k-reset" class="ghost" type="button"><i class="fa-solid fa-rotate-left"></i> Annuler les changements</button>
+							<span class="dirty" id="k-dirty" hidden><i class="fa-solid fa-circle-exclamation"></i> Modifications non publiées</span>
+						</div>
+					</div>
+					<div class="card">
+						<h2><i class="fa-solid fa-eye"></i> Aperçu</h2>
+						<div class="kinks-prev" id="k-preview"></div>
 					</div>
 				</section>
 			</div>
@@ -526,6 +642,7 @@
 				if (txt != null) e.textContent = txt;
 				return e;
 			};
+			const icon = cls => el('i', cls);
 			const LS = 'neku-admin';
 
 			/* nom propre pour dossiers/fichiers : sans accents, lettres/chiffres/_ uniquement */
@@ -544,6 +661,12 @@
 				'image/gif': 'gif'
 			})[f.type] || null;
 			const chipStyle = c => `color:${c};background:linear-gradient(135deg,${c}28,${c}10);border:1px solid ${c}65`;
+
+			/* liste de kinks propre : texte, sans espaces superflus, sans entrées vides */
+			const cleanKinks = a => (Array.isArray(a) ? a : [])
+				.map(k => (typeof k === 'string' ? k : (k && k.name) || ''))
+				.map(s => String(s).trim())
+				.filter(Boolean);
 
 			/* prochain numéro libre pour un personnage (le premier fichier = 00) */
 			const nextNumber = srcs => Math.max(-1, ...srcs.map(s => {
@@ -572,7 +695,11 @@
 
 			function say(msg, kind) {
 				const s = $('#status');
-				s.textContent = msg || '';
+				s.replaceChildren();
+				if (kind === 'ok') s.append(icon('fa-solid fa-circle-check'), ' ');
+				else if (kind === 'err') s.append(icon('fa-solid fa-triangle-exclamation'), ' ');
+				else if (msg) s.append(icon('fa-solid fa-spinner fa-spin'), ' ');
+				s.append(document.createTextNode(msg || ''));
 				s.className = kind || '';
 				s.hidden = !msg;
 			}
@@ -587,7 +714,8 @@
 				treeSha = '',
 				paths = new Map(),
 				sources = [],
-				persos = [];
+				persos = [],
+				kinks = [];
 			let busy = false;
 
 			async function gh(path, opts = {}) {
@@ -642,6 +770,7 @@
 				paths = new Map(tree.tree.filter(t => t.type === 'blob').map(t => [t.path, t.sha]));
 				sources = await readJSON('data/sources.json');
 				persos = await readJSON('data/personnages.json');
+				kinks = cleanKinks(await readJSON('data/kinks.json'));
 			}
 
 			/* un seul commit pour toutes les modifications */
@@ -758,6 +887,20 @@
 					if (persos.some(p => p.source === name)) throw new Error('Cette source est encore utilisée par des personnages.');
 					await commit([jsonFile('data/sources.json', sources.filter(s => s.name !== name))], `Admin : suppression de la source ${name}`);
 				}, `Source « ${name} » supprimée.`);
+			}
+
+			/* ════════════════════════ ACTIONS : KINKS ════════════════════════ */
+			function doSaveKinks(list) {
+				return guarded(async () => {
+					const names = cleanKinks(list);
+					const seen = new Set();
+					for (const n of names) {
+						const k = n.toLowerCase();
+						if (seen.has(k)) throw new Error(`« ${n} » apparaît deux fois dans la liste.`);
+						seen.add(k);
+					}
+					await commit([jsonFile('data/kinks.json', names)], 'Admin : mise à jour des kinks');
+				}, 'Liste des kinks mise à jour.');
 			}
 
 			/* ════════════════════════ ACTIONS : PERSONNAGES ════════════════════════ */
@@ -890,8 +1033,10 @@
 				cb.checked = nsfw;
 				cb.addEventListener('change', () => onNsfw(cb.checked));
 				lb.append(cb, document.createTextNode(' NSFW'));
-				const x = el('button', 'x', removeLabel);
+				
+				const x = el('button', 'x');
 				x.type = 'button';
+				x.innerHTML = removeLabel.includes('✕') ? '<i class="fa-solid fa-xmark"></i>' : removeLabel;
 				x.addEventListener('click', onRemove);
 				ctl.append(lb, x);
 				it.append(ph, pth, ctl);
@@ -922,7 +1067,7 @@
 							im.nsfw = v;
 							renderForm();
 						},
-						removeLabel: im.remove ? 'Annuler' : 'Retirer',
+						removeLabel: im.remove ? '<i class="fa-solid fa-rotate-left"></i> Annuler' : '<i class="fa-solid fa-trash-can"></i> Retirer',
 						onRemove: () => {
 							im.remove = !im.remove;
 							renderForm();
@@ -955,12 +1100,13 @@
 				$('#f-bulk').hidden = !F.pending.length;
 
 				const edit = F.mode === 'edit';
-				$('#f-title').textContent = edit ? `Modifier : ${F.origName}` : 'Nouveau personnage';
+				const title = $('#f-title');
+				title.replaceChildren(icon(edit ? 'fa-solid fa-user-pen' : 'fa-solid fa-user-plus'), document.createTextNode(edit ? ` Modifier : ${F.origName}` : ' Nouveau personnage'));
 				$('#f-name').disabled = edit;
 				$('#f-source').disabled = edit;
 				$('#f-cancel').hidden = !edit;
 				$('#f-del').hidden = !edit;
-				$('#f-save').textContent = edit ? 'Enregistrer les modifications' : 'Publier sur le site';
+				$('#f-save').innerHTML = edit ? '<i class="fa-solid fa-floppy-disk"></i> Enregistrer les modifications' : '<i class="fa-solid fa-paper-plane"></i> Publier sur le site';
 			}
 
 			function renderSourceSelect() {
@@ -1114,7 +1260,8 @@
 					const n = (p.images || []).length;
 					const nn = (p.images || []).filter(i => i.nsfw).length;
 					row.append(chip, el('span', 'hint', `${n} image${n > 1 ? 's' : ''}${nn ? ` (dont ${nn} NSFW)` : ''}`));
-					const b = el('button', 'ghost', 'Modifier');
+					const b = el('button', 'ghost');
+					b.innerHTML = '<i class="fa-solid fa-pen-to-square"></i> Modifier';
 					b.addEventListener('click', () => editCharacter(p));
 					row.append(b);
 					box.append(row);
@@ -1192,12 +1339,14 @@
 					};
 					pick.addEventListener('input', () => sync(pick.value));
 					hex.addEventListener('input', () => sync(hex.value));
-					const save = el('button', 'ghost', 'Enregistrer la couleur');
+					const save = el('button', 'ghost');
+					save.innerHTML = '<i class="fa-solid fa-floppy-disk"></i> Enregistrer';
 					save.addEventListener('click', () => {
 						if (!isHex(hex.value)) return say('Couleur invalide (exemple : #60a5fa).', 'err');
 						doSetColor(s.name, hex.value);
 					});
-					const del = el('button', 'danger', used ? `Utilisée par ${used} perso.` : 'Supprimer');
+					const del = el('button', 'danger');
+					del.innerHTML = used ? `<i class="fa-solid fa-lock"></i> Utilisée (${used})` : '<i class="fa-solid fa-trash-can"></i> Supprimer';
 					del.disabled = used > 0;
 					del.addEventListener('click', () => {
 						if (confirm(`Supprimer la source « ${s.name} » ?`)) doDeleteSource(s.name);
@@ -1207,12 +1356,120 @@
 				});
 			}
 
+			/* ════════════════════════ INTERFACE : KINKS ════════════════════════ */
+			let kDraft = [],
+				kTouched = false;
+			const kDirty = () => JSON.stringify(cleanKinks(kDraft)) !== JSON.stringify(kinks);
+
+			function iconBtn(cls, title, onClick, disabled) {
+				const b = el('button', 'ghost icon');
+				b.type = 'button';
+				b.title = title;
+				b.setAttribute('aria-label', title);
+				b.append(icon(cls));
+				b.disabled = !!disabled;
+				b.addEventListener('click', onClick);
+				return b;
+			}
+
+			/* aperçu + indicateur de modifications (sans reconstruire la liste, pour garder le focus) */
+			function paintKinkMeta() {
+				$('#k-preview').replaceChildren(...cleanKinks(kDraft).map(n => el('div', 'kink', n)));
+				const d = kDirty();
+				$('#k-dirty').hidden = !d;
+				$('#k-save').disabled = !d;
+				$('#k-reset').disabled = !d;
+			}
+
+			function renderKinks() {
+				if (!kTouched) kDraft = [...kinks];
+				const box = $('#k-list');
+				box.replaceChildren();
+				if (!kDraft.length) box.append(el('p', 'hint', 'Aucun kink pour l\'instant.'));
+				const move = (i, j) => {
+					[kDraft[i], kDraft[j]] = [kDraft[j], kDraft[i]];
+					kTouched = true;
+					renderKinks();
+				};
+				kDraft.forEach((k, i) => {
+					const row = el('div', 'k-row');
+					const inp = el('input');
+					inp.type = 'text';
+					inp.maxLength = 30;
+					inp.value = k;
+					inp.setAttribute('aria-label', `Kink ${i + 1}`);
+					inp.addEventListener('input', () => {
+						kDraft[i] = inp.value;
+						kTouched = true;
+						paintKinkMeta();
+					});
+					row.append(
+						inp,
+						iconBtn('fa-solid fa-arrow-up', 'Monter', () => move(i, i - 1), i === 0),
+						iconBtn('fa-solid fa-arrow-down', 'Descendre', () => move(i, i + 1), i === kDraft.length - 1),
+						iconBtn('fa-solid fa-trash-can', 'Supprimer', () => {
+							kDraft.splice(i, 1);
+							kTouched = true;
+							renderKinks();
+						})
+					);
+					box.append(row);
+				});
+				paintKinkMeta();
+			}
+
+			function wireKinks() {
+				const input = $('#k-new');
+				const add = () => {
+					const v = input.value.trim();
+					if (!v) return;
+					if (cleanKinks(kDraft).some(x => x.toLowerCase() === v.toLowerCase())) return say(`« ${v} » est déjà dans la liste.`, 'err');
+					kDraft.push(v);
+					kTouched = true;
+					input.value = '';
+					say('');
+					renderKinks();
+				};
+				$('#k-add').addEventListener('click', add);
+				input.addEventListener('keydown', e => {
+					if (e.key === 'Enter') {
+						e.preventDefault();
+						add();
+					}
+				});
+				$('#k-reset').addEventListener('click', () => {
+					kTouched = false;
+					say('');
+					renderKinks();
+				});
+				$('#k-save').addEventListener('click', async () => {
+					const names = cleanKinks(kDraft);
+					const seen = new Set();
+					for (const n of names) {
+						if (seen.has(n.toLowerCase())) return say(`« ${n} » apparaît deux fois dans la liste.`, 'err');
+						seen.add(n.toLowerCase());
+					}
+					if (!names.length && !confirm('La liste est vide : la section Kinks n\'affichera rien. Continuer ?')) return;
+					if (await doSaveKinks(names)) {
+						kTouched = false;
+						renderKinks();
+					}
+				});
+				window.addEventListener('beforeunload', e => {
+					if (kTouched && kDirty()) {
+						e.preventDefault();
+						e.returnValue = '';
+					}
+				});
+			}
+
 			/* ════════════════════════ CONNEXION ET DÉMARRAGE ════════════════════════ */
 			function render() {
 				renderSources();
 				renderSourceSelect();
 				renderPersoList();
 				renderForm();
+				renderKinks();
 			}
 
 			function showApp() {
@@ -1257,11 +1514,13 @@
 			function init() {
 				wireForm();
 				wireSourceForm();
+				wireKinks();
 
 				document.querySelectorAll('.tabs button').forEach(b => b.addEventListener('click', () => {
 					document.querySelectorAll('.tabs button').forEach(x => x.classList.toggle('on', x === b));
-					$('#tab-persos').hidden = b.dataset.tab !== 'persos';
-					$('#tab-sources').hidden = b.dataset.tab !== 'sources';
+					['persos', 'sources', 'kinks'].forEach(t => {
+						$('#tab-' + t).hidden = b.dataset.tab !== t;
+					});
 				}));
 
 				$('#l-go').addEventListener('click', () => {
