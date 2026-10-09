@@ -42,6 +42,46 @@
       {
         "src": "images/Helluva_Boss_Hazbin_Hotel/Loona/SFW/Loona_04.webp",
         "nsfw": false
+      },
+      {
+        "src": "images/Helluva_Boss_Hazbin_Hotel/Loona/NSFW/Loona_05.webp",
+        "nsfw": true
+      },
+      {
+        "src": "images/Helluva_Boss_Hazbin_Hotel/Loona/NSFW/Loona_06.webp",
+        "nsfw": true
+      },
+      {
+        "src": "images/Helluva_Boss_Hazbin_Hotel/Loona/NSFW/Loona_07.webp",
+        "nsfw": true
+      },
+      {
+        "src": "images/Helluva_Boss_Hazbin_Hotel/Loona/NSFW/Loona_08.webp",
+        "nsfw": true
+      },
+      {
+        "src": "images/Helluva_Boss_Hazbin_Hotel/Loona/NSFW/Loona_09.webp",
+        "nsfw": true
+      },
+      {
+        "src": "images/Helluva_Boss_Hazbin_Hotel/Loona/NSFW/Loona_10.webp",
+        "nsfw": true
+      },
+      {
+        "src": "images/Helluva_Boss_Hazbin_Hotel/Loona/NSFW/Loona_11.webp",
+        "nsfw": true
+      },
+      {
+        "src": "images/Helluva_Boss_Hazbin_Hotel/Loona/NSFW/Loona_12.webp",
+        "nsfw": true
+      },
+      {
+        "src": "images/Helluva_Boss_Hazbin_Hotel/Loona/NSFW/Loona_13.webp",
+        "nsfw": true
+      },
+      {
+        "src": "images/Helluva_Boss_Hazbin_Hotel/Loona/NSFW/Loona_14.webp",
+        "nsfw": true
       }
     ]
   },
