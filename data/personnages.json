@@ -160,6 +160,62 @@
       {
         "src": "images/Bloom/Kaoruko_Waguri/SFW/Kaoruko_Waguri_02.webp",
         "nsfw": false
+      },
+      {
+        "src": "images/Bloom/Kaoruko_Waguri/NSFW/Kaoruko_Waguri_03.webp",
+        "nsfw": true
+      },
+      {
+        "src": "images/Bloom/Kaoruko_Waguri/NSFW/Kaoruko_Waguri_04.webp",
+        "nsfw": true
+      },
+      {
+        "src": "images/Bloom/Kaoruko_Waguri/NSFW/Kaoruko_Waguri_05.webp",
+        "nsfw": true
+      },
+      {
+        "src": "images/Bloom/Kaoruko_Waguri/NSFW/Kaoruko_Waguri_06.webp",
+        "nsfw": true
+      },
+      {
+        "src": "images/Bloom/Kaoruko_Waguri/NSFW/Kaoruko_Waguri_07.webp",
+        "nsfw": true
+      },
+      {
+        "src": "images/Bloom/Kaoruko_Waguri/NSFW/Kaoruko_Waguri_08.webp",
+        "nsfw": true
+      },
+      {
+        "src": "images/Bloom/Kaoruko_Waguri/NSFW/Kaoruko_Waguri_09.webp",
+        "nsfw": true
+      },
+      {
+        "src": "images/Bloom/Kaoruko_Waguri/NSFW/Kaoruko_Waguri_10.webp",
+        "nsfw": true
+      },
+      {
+        "src": "images/Bloom/Kaoruko_Waguri/NSFW/Kaoruko_Waguri_11.webp",
+        "nsfw": true
+      },
+      {
+        "src": "images/Bloom/Kaoruko_Waguri/NSFW/Kaoruko_Waguri_12.webp",
+        "nsfw": true
+      },
+      {
+        "src": "images/Bloom/Kaoruko_Waguri/NSFW/Kaoruko_Waguri_13.webp",
+        "nsfw": true
+      },
+      {
+        "src": "images/Bloom/Kaoruko_Waguri/NSFW/Kaoruko_Waguri_14.webp",
+        "nsfw": true
+      },
+      {
+        "src": "images/Bloom/Kaoruko_Waguri/NSFW/Kaoruko_Waguri_15.webp",
+        "nsfw": true
+      },
+      {
+        "src": "images/Bloom/Kaoruko_Waguri/NSFW/Kaoruko_Waguri_16.webp",
+        "nsfw": true
       }
     ]
   },
