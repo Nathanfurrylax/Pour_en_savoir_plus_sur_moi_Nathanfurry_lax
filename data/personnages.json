@@ -148,7 +148,20 @@
     "name": "Kaoruko Waguri",
     "source": "Bloom",
     "wiki": "",
-    "images": []
+    "images": [
+      {
+        "src": "images/Bloom/Kaoruko_Waguri/SFW/Kaoruko_Waguri_00.webp",
+        "nsfw": false
+      },
+      {
+        "src": "images/Bloom/Kaoruko_Waguri/SFW/Kaoruko_Waguri_01.webp",
+        "nsfw": false
+      },
+      {
+        "src": "images/Bloom/Kaoruko_Waguri/SFW/Kaoruko_Waguri_02.webp",
+        "nsfw": false
+      }
+    ]
   },
   {
     "name": "Himiko Toga",
