@@ -299,7 +299,12 @@
     "name": "Himiko Toga",
     "source": "My Hero Academia",
     "wiki": "https://fr.wikipedia.org/wiki/My_Hero_Academia",
-    "images": []
+    "images": [
+      {
+        "src": "images/My_Hero_Academia/Himiko_Toga/SFW/Himiko_Toga_00.webp",
+        "nsfw": false
+      }
+    ]
   },
   {
     "name": "Sakuragi Mai",
