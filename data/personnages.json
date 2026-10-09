@@ -359,5 +359,52 @@
         "nsfw": true
       }
     ]
+  },
+  {
+    "name": "Hayase Nagatoro",
+    "source": "Nagatoro",
+    "wiki": "",
+    "images": [
+      {
+        "src": "images/Nagatoro/Hayase_Nagatoro/SFW/Hayase_Nagatoro_00.webp",
+        "nsfw": false
+      },
+      {
+        "src": "images/Nagatoro/Hayase_Nagatoro/SFW/Hayase_Nagatoro_01.webp",
+        "nsfw": false
+      },
+      {
+        "src": "images/Nagatoro/Hayase_Nagatoro/SFW/Hayase_Nagatoro_02.webp",
+        "nsfw": false
+      },
+      {
+        "src": "images/Nagatoro/Hayase_Nagatoro/SFW/Hayase_Nagatoro_03.webp",
+        "nsfw": false
+      },
+      {
+        "src": "images/Nagatoro/Hayase_Nagatoro/SFW/Hayase_Nagatoro_04.webp",
+        "nsfw": false
+      },
+      {
+        "src": "images/Nagatoro/Hayase_Nagatoro/SFW/Hayase_Nagatoro_05.webp",
+        "nsfw": false
+      },
+      {
+        "src": "images/Nagatoro/Hayase_Nagatoro/SFW/Hayase_Nagatoro_06.webp",
+        "nsfw": false
+      },
+      {
+        "src": "images/Nagatoro/Hayase_Nagatoro/SFW/Hayase_Nagatoro_07.webp",
+        "nsfw": false
+      },
+      {
+        "src": "images/Nagatoro/Hayase_Nagatoro/SFW/Hayase_Nagatoro_08.webp",
+        "nsfw": false
+      },
+      {
+        "src": "images/Nagatoro/Hayase_Nagatoro/SFW/Hayase_Nagatoro_09.webp",
+        "nsfw": false
+      }
+    ]
   }
 ]
