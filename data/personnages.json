@@ -237,7 +237,12 @@
     "name": "Apogee",
     "source": "tinygaypirate",
     "wiki": "",
-    "images": []
+    "images": [
+      {
+        "src": "images/tinygaypirate/Apogee/SFW/Apogee_00.webp",
+        "nsfw": false
+      }
+    ]
   },
   {
     "name": "Mita",
