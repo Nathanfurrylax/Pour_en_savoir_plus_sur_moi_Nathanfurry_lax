@@ -168,7 +168,12 @@
     "name": "Aqua",
     "source": "Konosuba",
     "wiki": "https://fr.wikipedia.org/wiki/Kono_subarashii_sekai_ni_shukufuku_wo!",
-    "images": []
+    "images": [
+      {
+        "src": "images/Konosuba/Aqua/SFW/Aqua_00.webp",
+        "nsfw": false
+      }
+    ]
   },
   {
     "name": "Erza Scarlet",
