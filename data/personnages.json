@@ -89,7 +89,12 @@
     "name": "Tous les personnages",
     "source": "Animal Crossing",
     "wiki": "https://fr.wikipedia.org/wiki/Animal_Crossing",
-    "images": []
+    "images": [
+      {
+        "src": "images/Animal_Crossing/Tous_les_personnages/SFW/Tous_les_personnages_00.webp",
+        "nsfw": false
+      }
+    ]
   },
   {
     "name": "Sylveon",
