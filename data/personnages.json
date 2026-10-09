@@ -190,7 +190,12 @@
     "name": "Marine Kitagawa",
     "source": "My Dress-Up Darling",
     "wiki": "https://fr.wikipedia.org/wiki/My_Dress-Up_Darling",
-    "images": []
+    "images": [
+      {
+        "src": "images/My_Dress_Up_Darling/Marine_Kitagawa/SFW/Marine_Kitagawa_00.webp",
+        "nsfw": false
+      }
+    ]
   },
   {
     "name": "Frieren",
