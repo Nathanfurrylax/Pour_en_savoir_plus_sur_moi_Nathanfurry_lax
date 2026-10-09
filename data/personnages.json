@@ -218,7 +218,12 @@
     "name": "Mita",
     "source": "MiSide",
     "wiki": "",
-    "images": []
+    "images": [
+      {
+        "src": "images/MiSide/Mita/SFW/Mita_00.webp",
+        "nsfw": false
+      }
+    ]
   },
   {
     "name": "Kaoruko Waguri",
