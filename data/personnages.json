@@ -111,7 +111,12 @@
     "name": "Vulpix",
     "source": "Pokémon",
     "wiki": "https://fr.wikipedia.org/wiki/Goupix",
-    "images": []
+    "images": [
+      {
+        "src": "images/Pokemon/Vulpix/SFW/Vulpix_00.webp",
+        "nsfw": false
+      }
+    ]
   },
   {
     "name": "Lopunny",
