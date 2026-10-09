@@ -24,63 +24,63 @@
     "wiki": "https://hazbin-hotel.fandom.com/fr/wiki/Loona",
     "images": [
       {
-        "src": "images/Helluva_Boss_Hazbin_Hotel/Loona/SFW/Loona_00.webp",
+        "src": "/images/Helluva_Boss_Hazbin_Hotel/Loona/SFW/Loona_00.webp",
         "nsfw": false
       },
       {
-        "src": "images/Helluva_Boss_Hazbin_Hotel/Loona/SFW/Loona_01.webp",
+        "src": "/images/Helluva_Boss_Hazbin_Hotel/Loona/SFW/Loona_01.webp",
         "nsfw": false
       },
       {
-        "src": "images/Helluva_Boss_Hazbin_Hotel/Loona/SFW/Loona_02.webp",
+        "src": "/images/Helluva_Boss_Hazbin_Hotel/Loona/SFW/Loona_02.webp",
         "nsfw": false
       },
       {
-        "src": "images/Helluva_Boss_Hazbin_Hotel/Loona/SFW/Loona_03.webp",
+        "src": "/images/Helluva_Boss_Hazbin_Hotel/Loona/SFW/Loona_03.webp",
         "nsfw": false
       },
       {
-        "src": "images/Helluva_Boss_Hazbin_Hotel/Loona/SFW/Loona_04.webp",
+        "src": "/images/Helluva_Boss_Hazbin_Hotel/Loona/SFW/Loona_04.webp",
         "nsfw": false
       },
       {
-        "src": "images/Helluva_Boss_Hazbin_Hotel/Loona/NSFW/Loona_05.webp",
+        "src": "/images/Helluva_Boss_Hazbin_Hotel/Loona/NSFW/Loona_05.webp",
         "nsfw": true
       },
       {
-        "src": "images/Helluva_Boss_Hazbin_Hotel/Loona/NSFW/Loona_06.webp",
+        "src": "/images/Helluva_Boss_Hazbin_Hotel/Loona/NSFW/Loona_06.webp",
         "nsfw": true
       },
       {
-        "src": "images/Helluva_Boss_Hazbin_Hotel/Loona/NSFW/Loona_07.webp",
+        "src": "/images/Helluva_Boss_Hazbin_Hotel/Loona/NSFW/Loona_07.webp",
         "nsfw": true
       },
       {
-        "src": "images/Helluva_Boss_Hazbin_Hotel/Loona/NSFW/Loona_08.webp",
+        "src": "/images/Helluva_Boss_Hazbin_Hotel/Loona/NSFW/Loona_08.webp",
         "nsfw": true
       },
       {
-        "src": "images/Helluva_Boss_Hazbin_Hotel/Loona/NSFW/Loona_09.webp",
+        "src": "/images/Helluva_Boss_Hazbin_Hotel/Loona/NSFW/Loona_09.webp",
         "nsfw": true
       },
       {
-        "src": "images/Helluva_Boss_Hazbin_Hotel/Loona/NSFW/Loona_10.webp",
+        "src": "/images/Helluva_Boss_Hazbin_Hotel/Loona/NSFW/Loona_10.webp",
         "nsfw": true
       },
       {
-        "src": "images/Helluva_Boss_Hazbin_Hotel/Loona/NSFW/Loona_11.webp",
+        "src": "/images/Helluva_Boss_Hazbin_Hotel/Loona/NSFW/Loona_11.webp",
         "nsfw": true
       },
       {
-        "src": "images/Helluva_Boss_Hazbin_Hotel/Loona/NSFW/Loona_12.webp",
+        "src": "/images/Helluva_Boss_Hazbin_Hotel/Loona/NSFW/Loona_12.webp",
         "nsfw": true
       },
       {
-        "src": "images/Helluva_Boss_Hazbin_Hotel/Loona/NSFW/Loona_13.webp",
+        "src": "/images/Helluva_Boss_Hazbin_Hotel/Loona/NSFW/Loona_13.webp",
         "nsfw": true
       },
       {
-        "src": "images/Helluva_Boss_Hazbin_Hotel/Loona/NSFW/Loona_14.webp",
+        "src": "/images/Helluva_Boss_Hazbin_Hotel/Loona/NSFW/Loona_14.webp",
         "nsfw": true
       }
     ]
@@ -91,7 +91,7 @@
     "wiki": "https://fr.wikipedia.org/wiki/Animal_Crossing",
     "images": [
       {
-        "src": "images/Animal_Crossing/Tous_les_personnages/SFW/Tous_les_personnages_00.webp",
+        "src": "/images/Animal_Crossing/Tous_les_personnages/SFW/Tous_les_personnages_00.webp",
         "nsfw": false
       }
     ]
@@ -102,7 +102,7 @@
     "wiki": "https://fr.wikipedia.org/wiki/Nymphali",
     "images": [
       {
-        "src": "images/Pokemon/Sylveon/SFW/Sylveon_00.webp",
+        "src": "/images/Pokemon/Sylveon/SFW/Sylveon_00.webp",
         "nsfw": false
       }
     ]
@@ -113,7 +113,7 @@
     "wiki": "https://fr.wikipedia.org/wiki/Goupix",
     "images": [
       {
-        "src": "images/Pokemon/Vulpix/SFW/Vulpix_00.webp",
+        "src": "/images/Pokemon/Vulpix/SFW/Vulpix_00.webp",
         "nsfw": false
       }
     ]
@@ -122,25 +122,45 @@
     "name": "Lopunny",
     "source": "Pokémon",
     "wiki": "https://fr.wikipedia.org/wiki/Laporeille",
-    "images": []
+    "images": [
+      {
+        "src": "/images/placeholder (1)-8.webp",
+        "nsfw": false
+      }
+    ]
   },
   {
     "name": "Goupelin",
     "source": "Pokémon",
     "wiki": "https://fr.wikipedia.org/wiki/Goupelin",
-    "images": []
+    "images": [
+      {
+        "src": "/images/placeholder (1)-7.webp",
+        "nsfw": false
+      }
+    ]
   },
   {
     "name": "Meowscarade",
     "source": "Pokémon",
     "wiki": "https://fr.wikipedia.org/wiki/Miasscarade",
-    "images": []
+    "images": [
+      {
+        "src": "/images/placeholder (1)-6.webp",
+        "nsfw": false
+      }
+    ]
   },
   {
     "name": "Gardevoir",
     "source": "Pokémon",
     "wiki": "https://fr.wikipedia.org/wiki/Gardevoir",
-    "images": []
+    "images": [
+      {
+        "src": "/images/placeholder (1)-5.webp",
+        "nsfw": false
+      }
+    ]
   },
   {
     "name": "Raphtalia",
@@ -148,7 +168,7 @@
     "wiki": "https://fr.wikipedia.org/wiki/The_Rising_of_the_Shield_Hero",
     "images": [
       {
-        "src": "images/The_Rising_of_the_Shield_Hero/Raphtalia/SFW/Raphtalia_00.webp",
+        "src": "/images/The_Rising_of_the_Shield_Hero/Raphtalia/SFW/Raphtalia_00.webp",
         "nsfw": false
       }
     ]
@@ -159,7 +179,7 @@
     "wiki": "https://fr.wikipedia.org/wiki/Honkai:_Star_Rail",
     "images": [
       {
-        "src": "images/Honkai_Star_Rail/Kafka/SFW/Kafka_00.webp",
+        "src": "/images/Honkai_Star_Rail/Kafka/SFW/Kafka_00.webp",
         "nsfw": false
       }
     ]
@@ -170,7 +190,7 @@
     "wiki": "https://fr.wikipedia.org/wiki/Kono_subarashii_sekai_ni_shukufuku_wo!",
     "images": [
       {
-        "src": "images/Konosuba/Aqua/SFW/Aqua_00.webp",
+        "src": "/images/Konosuba/Aqua/SFW/Aqua_00.webp",
         "nsfw": false
       }
     ]
@@ -181,7 +201,7 @@
     "wiki": "https://fr.wikipedia.org/wiki/Erza_Scarlet",
     "images": [
       {
-        "src": "images/Fairy_Tail/Erza_Scarlet/SFW/Erza_Scarlet_00.webp",
+        "src": "/images/Fairy_Tail/Erza_Scarlet/SFW/Erza_Scarlet_00.webp",
         "nsfw": false
       }
     ]
@@ -192,7 +212,7 @@
     "wiki": "https://fr.wikipedia.org/wiki/My_Dress-Up_Darling",
     "images": [
       {
-        "src": "images/My_Dress_Up_Darling/Marine_Kitagawa/SFW/Marine_Kitagawa_00.webp",
+        "src": "/images/My_Dress_Up_Darling/Marine_Kitagawa/SFW/Marine_Kitagawa_00.webp",
         "nsfw": false
       }
     ]
@@ -201,45 +221,74 @@
     "name": "Frieren",
     "source": "Frieren",
     "wiki": "https://fr.wikipedia.org/wiki/Frieren",
-    "images": []
+    "images": [
+      {
+        "src": "/images/placeholder (1)-4.webp",
+        "nsfw": false
+      }
+    ]
   },
   {
     "name": "Yumemizuki",
     "source": "Genshin Impact",
     "wiki": "https://fr.wikipedia.org/wiki/Genshin_Impact",
-    "images": []
+    "images": [
+      {
+        "src": "/images/placeholder (1)-3.webp",
+        "nsfw": false
+      }
+    ]
   },
   {
     "name": "Furina",
     "source": "Genshin Impact",
     "wiki": "https://fr.wikipedia.org/wiki/Genshin_Impact",
-    "images": []
+    "images": [
+      {
+        "src": "/images/placeholder (1)-2.webp",
+        "nsfw": false
+      }
+    ]
   },
   {
     "name": "Mavuika",
     "source": "Genshin Impact",
     "wiki": "https://fr.wikipedia.org/wiki/Genshin_Impact",
-    "images": []
+    "images": [
+      {
+        "src": "/images/placeholder.webp",
+        "nsfw": false
+      }
+    ]
   },
   {
     "name": "Clove",
     "source": "Valorant",
     "wiki": "https://fr.wikipedia.org/wiki/Valorant",
-    "images": []
+    "images": [
+      {
+        "src": "/images/placeholder (1)-1.webp",
+        "nsfw": false
+      }
+    ]
   },
   {
     "name": "Néon",
     "source": "Valorant",
     "wiki": "https://fr.wikipedia.org/wiki/Valorant",
-    "images": []
+    "images": [
+      {
+        "src": "/images/placeholder (1).webp",
+        "nsfw": false
+      }
+    ]
   },
   {
     "name": "Apogee",
     "source": "tinygaypirate",
-    "wiki": "",
     "images": [
       {
-        "src": "images/tinygaypirate/Apogee/SFW/Apogee_00.webp",
+        "src": "/images/tinygaypirate/Apogee/SFW/Apogee_00.webp",
         "nsfw": false
       }
     ]
@@ -247,10 +296,9 @@
   {
     "name": "Mita",
     "source": "MiSide",
-    "wiki": "",
     "images": [
       {
-        "src": "images/MiSide/Mita/SFW/Mita_00.webp",
+        "src": "/images/MiSide/Mita/SFW/Mita_00.webp",
         "nsfw": false
       }
     ]
@@ -258,74 +306,73 @@
   {
     "name": "Kaoruko Waguri",
     "source": "Bloom",
-    "wiki": "",
     "images": [
       {
-        "src": "images/Bloom/Kaoruko_Waguri/SFW/Kaoruko_Waguri_00.webp",
+        "src": "/images/Bloom/Kaoruko_Waguri/SFW/Kaoruko_Waguri_00.webp",
         "nsfw": false
       },
       {
-        "src": "images/Bloom/Kaoruko_Waguri/SFW/Kaoruko_Waguri_01.webp",
+        "src": "/images/Bloom/Kaoruko_Waguri/SFW/Kaoruko_Waguri_01.webp",
         "nsfw": false
       },
       {
-        "src": "images/Bloom/Kaoruko_Waguri/SFW/Kaoruko_Waguri_02.webp",
+        "src": "/images/Bloom/Kaoruko_Waguri/SFW/Kaoruko_Waguri_02.webp",
         "nsfw": false
       },
       {
-        "src": "images/Bloom/Kaoruko_Waguri/NSFW/Kaoruko_Waguri_03.webp",
+        "src": "/images/Bloom/Kaoruko_Waguri/NSFW/Kaoruko_Waguri_03.webp",
         "nsfw": true
       },
       {
-        "src": "images/Bloom/Kaoruko_Waguri/NSFW/Kaoruko_Waguri_04.webp",
+        "src": "/images/Bloom/Kaoruko_Waguri/NSFW/Kaoruko_Waguri_04.webp",
         "nsfw": true
       },
       {
-        "src": "images/Bloom/Kaoruko_Waguri/NSFW/Kaoruko_Waguri_05.webp",
+        "src": "/images/Bloom/Kaoruko_Waguri/NSFW/Kaoruko_Waguri_05.webp",
         "nsfw": true
       },
       {
-        "src": "images/Bloom/Kaoruko_Waguri/NSFW/Kaoruko_Waguri_06.webp",
+        "src": "/images/Bloom/Kaoruko_Waguri/NSFW/Kaoruko_Waguri_06.webp",
         "nsfw": true
       },
       {
-        "src": "images/Bloom/Kaoruko_Waguri/NSFW/Kaoruko_Waguri_07.webp",
+        "src": "/images/Bloom/Kaoruko_Waguri/NSFW/Kaoruko_Waguri_07.webp",
         "nsfw": true
       },
       {
-        "src": "images/Bloom/Kaoruko_Waguri/NSFW/Kaoruko_Waguri_08.webp",
+        "src": "/images/Bloom/Kaoruko_Waguri/NSFW/Kaoruko_Waguri_08.webp",
         "nsfw": true
       },
       {
-        "src": "images/Bloom/Kaoruko_Waguri/NSFW/Kaoruko_Waguri_09.webp",
+        "src": "/images/Bloom/Kaoruko_Waguri/NSFW/Kaoruko_Waguri_09.webp",
         "nsfw": true
       },
       {
-        "src": "images/Bloom/Kaoruko_Waguri/NSFW/Kaoruko_Waguri_10.webp",
+        "src": "/images/Bloom/Kaoruko_Waguri/NSFW/Kaoruko_Waguri_10.webp",
         "nsfw": true
       },
       {
-        "src": "images/Bloom/Kaoruko_Waguri/NSFW/Kaoruko_Waguri_11.webp",
+        "src": "/images/Bloom/Kaoruko_Waguri/NSFW/Kaoruko_Waguri_11.webp",
         "nsfw": true
       },
       {
-        "src": "images/Bloom/Kaoruko_Waguri/NSFW/Kaoruko_Waguri_12.webp",
+        "src": "/images/Bloom/Kaoruko_Waguri/NSFW/Kaoruko_Waguri_12.webp",
         "nsfw": true
       },
       {
-        "src": "images/Bloom/Kaoruko_Waguri/NSFW/Kaoruko_Waguri_13.webp",
+        "src": "/images/Bloom/Kaoruko_Waguri/NSFW/Kaoruko_Waguri_13.webp",
         "nsfw": true
       },
       {
-        "src": "images/Bloom/Kaoruko_Waguri/NSFW/Kaoruko_Waguri_14.webp",
+        "src": "/images/Bloom/Kaoruko_Waguri/NSFW/Kaoruko_Waguri_14.webp",
         "nsfw": true
       },
       {
-        "src": "images/Bloom/Kaoruko_Waguri/NSFW/Kaoruko_Waguri_15.webp",
+        "src": "/images/Bloom/Kaoruko_Waguri/NSFW/Kaoruko_Waguri_15.webp",
         "nsfw": true
       },
       {
-        "src": "images/Bloom/Kaoruko_Waguri/NSFW/Kaoruko_Waguri_16.webp",
+        "src": "/images/Bloom/Kaoruko_Waguri/NSFW/Kaoruko_Waguri_16.webp",
         "nsfw": true
       }
     ]
@@ -336,7 +383,7 @@
     "wiki": "https://fr.wikipedia.org/wiki/My_Hero_Academia",
     "images": [
       {
-        "src": "images/My_Hero_Academia/Himiko_Toga/SFW/Himiko_Toga_00.webp",
+        "src": "/images/My_Hero_Academia/Himiko_Toga/SFW/Himiko_Toga_00.webp",
         "nsfw": false
       }
     ]
@@ -347,103 +394,103 @@
     "wiki": "https://fr.wikipedia.org/wiki/Rascal_Does_Not_Dream_of_Bunny_Girl_Senpai",
     "images": [
       {
-        "src": "images/Bunny_Girl_Senpai/Sakuragi_Mai/SFW/Sakuragi_Mai_00.webp",
+        "src": "/images/Bunny_Girl_Senpai/Sakuragi_Mai/SFW/Sakuragi_Mai_00.webp",
         "nsfw": false
       },
       {
-        "src": "images/Bunny_Girl_Senpai/Sakuragi_Mai/SFW/Sakuragi_Mai_01.webp",
+        "src": "/images/Bunny_Girl_Senpai/Sakuragi_Mai/SFW/Sakuragi_Mai_01.webp",
         "nsfw": false
       },
       {
-        "src": "images/Bunny_Girl_Senpai/Sakuragi_Mai/SFW/Sakuragi_Mai_02.webp",
+        "src": "/images/Bunny_Girl_Senpai/Sakuragi_Mai/SFW/Sakuragi_Mai_02.webp",
         "nsfw": false
       },
       {
-        "src": "images/Bunny_Girl_Senpai/Sakuragi_Mai/SFW/Sakuragi_Mai_03.webp",
+        "src": "/images/Bunny_Girl_Senpai/Sakuragi_Mai/SFW/Sakuragi_Mai_03.webp",
         "nsfw": false
       },
       {
-        "src": "images/Bunny_Girl_Senpai/Sakuragi_Mai/SFW/Sakuragi_Mai_04.webp",
+        "src": "/images/Bunny_Girl_Senpai/Sakuragi_Mai/SFW/Sakuragi_Mai_04.webp",
         "nsfw": false
       },
       {
-        "src": "images/Bunny_Girl_Senpai/Sakuragi_Mai/NSFW/Sakuragi_Mai_05.webp",
+        "src": "/images/Bunny_Girl_Senpai/Sakuragi_Mai/NSFW/Sakuragi_Mai_05.webp",
         "nsfw": true
       },
       {
-        "src": "images/Bunny_Girl_Senpai/Sakuragi_Mai/SFW/Sakuragi_Mai_06.webp",
+        "src": "/images/Bunny_Girl_Senpai/Sakuragi_Mai/SFW/Sakuragi_Mai_06.webp",
         "nsfw": false
       },
       {
-        "src": "images/Bunny_Girl_Senpai/Sakuragi_Mai/SFW/Sakuragi_Mai_07.webp",
+        "src": "/images/Bunny_Girl_Senpai/Sakuragi_Mai/SFW/Sakuragi_Mai_07.webp",
         "nsfw": false
       },
       {
-        "src": "images/Bunny_Girl_Senpai/Sakuragi_Mai/SFW/Sakuragi_Mai_08.webp",
+        "src": "/images/Bunny_Girl_Senpai/Sakuragi_Mai/SFW/Sakuragi_Mai_08.webp",
         "nsfw": false
       },
       {
-        "src": "images/Bunny_Girl_Senpai/Sakuragi_Mai/SFW/Sakuragi_Mai_09.webp",
+        "src": "/images/Bunny_Girl_Senpai/Sakuragi_Mai/SFW/Sakuragi_Mai_09.webp",
         "nsfw": false
       },
       {
-        "src": "images/Bunny_Girl_Senpai/Sakuragi_Mai/NSFW/Sakuragi_Mai_10.webp",
+        "src": "/images/Bunny_Girl_Senpai/Sakuragi_Mai/NSFW/Sakuragi_Mai_10.webp",
         "nsfw": true
       },
       {
-        "src": "images/Bunny_Girl_Senpai/Sakuragi_Mai/NSFW/Sakuragi_Mai_11.webp",
+        "src": "/images/Bunny_Girl_Senpai/Sakuragi_Mai/NSFW/Sakuragi_Mai_11.webp",
         "nsfw": true
       },
       {
-        "src": "images/Bunny_Girl_Senpai/Sakuragi_Mai/SFW/Sakuragi_Mai_12.webp",
+        "src": "/images/Bunny_Girl_Senpai/Sakuragi_Mai/SFW/Sakuragi_Mai_12.webp",
         "nsfw": false
       },
       {
-        "src": "images/Bunny_Girl_Senpai/Sakuragi_Mai/SFW/Sakuragi_Mai_13.webp",
+        "src": "/images/Bunny_Girl_Senpai/Sakuragi_Mai/SFW/Sakuragi_Mai_13.webp",
         "nsfw": false
       },
       {
-        "src": "images/Bunny_Girl_Senpai/Sakuragi_Mai/NSFW/Sakuragi_Mai_14.webp",
+        "src": "/images/Bunny_Girl_Senpai/Sakuragi_Mai/NSFW/Sakuragi_Mai_14.webp",
         "nsfw": true
       },
       {
-        "src": "images/Bunny_Girl_Senpai/Sakuragi_Mai/SFW/Sakuragi_Mai_15.webp",
+        "src": "/images/Bunny_Girl_Senpai/Sakuragi_Mai/SFW/Sakuragi_Mai_15.webp",
         "nsfw": false
       },
       {
-        "src": "images/Bunny_Girl_Senpai/Sakuragi_Mai/NSFW/Sakuragi_Mai_16.webp",
+        "src": "/images/Bunny_Girl_Senpai/Sakuragi_Mai/NSFW/Sakuragi_Mai_16.webp",
         "nsfw": true
       },
       {
-        "src": "images/Bunny_Girl_Senpai/Sakuragi_Mai/NSFW/Sakuragi_Mai_17.webp",
+        "src": "/images/Bunny_Girl_Senpai/Sakuragi_Mai/NSFW/Sakuragi_Mai_17.webp",
         "nsfw": true
       },
       {
-        "src": "images/Bunny_Girl_Senpai/Sakuragi_Mai/SFW/Sakuragi_Mai_18.webp",
+        "src": "/images/Bunny_Girl_Senpai/Sakuragi_Mai/SFW/Sakuragi_Mai_18.webp",
         "nsfw": false
       },
       {
-        "src": "images/Bunny_Girl_Senpai/Sakuragi_Mai/NSFW/Sakuragi_Mai_19.webp",
+        "src": "/images/Bunny_Girl_Senpai/Sakuragi_Mai/NSFW/Sakuragi_Mai_19.webp",
         "nsfw": true
       },
       {
-        "src": "images/Bunny_Girl_Senpai/Sakuragi_Mai/NSFW/Sakuragi_Mai_20.webp",
+        "src": "/images/Bunny_Girl_Senpai/Sakuragi_Mai/NSFW/Sakuragi_Mai_20.webp",
         "nsfw": true
       },
       {
-        "src": "images/Bunny_Girl_Senpai/Sakuragi_Mai/SFW/Sakuragi_Mai_21.webp",
+        "src": "/images/Bunny_Girl_Senpai/Sakuragi_Mai/SFW/Sakuragi_Mai_21.webp",
         "nsfw": false
       },
       {
-        "src": "images/Bunny_Girl_Senpai/Sakuragi_Mai/NSFW/Sakuragi_Mai_22.webp",
+        "src": "/images/Bunny_Girl_Senpai/Sakuragi_Mai/NSFW/Sakuragi_Mai_22.webp",
         "nsfw": true
       },
       {
-        "src": "images/Bunny_Girl_Senpai/Sakuragi_Mai/SFW/Sakuragi_Mai_23.webp",
+        "src": "/images/Bunny_Girl_Senpai/Sakuragi_Mai/SFW/Sakuragi_Mai_23.webp",
         "nsfw": false
       },
       {
-        "src": "images/Bunny_Girl_Senpai/Sakuragi_Mai/NSFW/Sakuragi_Mai_24.webp",
+        "src": "/images/Bunny_Girl_Senpai/Sakuragi_Mai/NSFW/Sakuragi_Mai_24.webp",
         "nsfw": true
       }
     ]
@@ -451,122 +498,121 @@
   {
     "name": "Mirko",
     "source": "My Hero Academia",
-    "wiki": "",
     "images": [
       {
-        "src": "images/My_Hero_Academia/Mirko/SFW/Mirko_00.webp",
+        "src": "/images/My_Hero_Academia/Mirko/SFW/Mirko_00.webp",
         "nsfw": false
       },
       {
-        "src": "images/My_Hero_Academia/Mirko/SFW/Mirko_01.webp",
+        "src": "/images/My_Hero_Academia/Mirko/SFW/Mirko_01.webp",
         "nsfw": false
       },
       {
-        "src": "images/My_Hero_Academia/Mirko/SFW/Mirko_02.webp",
+        "src": "/images/My_Hero_Academia/Mirko/SFW/Mirko_02.webp",
         "nsfw": false
       },
       {
-        "src": "images/My_Hero_Academia/Mirko/SFW/Mirko_03.webp",
+        "src": "/images/My_Hero_Academia/Mirko/SFW/Mirko_03.webp",
         "nsfw": false
       },
       {
-        "src": "images/My_Hero_Academia/Mirko/SFW/Mirko_04.webp",
+        "src": "/images/My_Hero_Academia/Mirko/SFW/Mirko_04.webp",
         "nsfw": false
       },
       {
-        "src": "images/My_Hero_Academia/Mirko/SFW/Mirko_05.webp",
+        "src": "/images/My_Hero_Academia/Mirko/SFW/Mirko_05.webp",
         "nsfw": false
       },
       {
-        "src": "images/My_Hero_Academia/Mirko/SFW/Mirko_06.webp",
+        "src": "/images/My_Hero_Academia/Mirko/SFW/Mirko_06.webp",
         "nsfw": false
       },
       {
-        "src": "images/My_Hero_Academia/Mirko/SFW/Mirko_07.webp",
+        "src": "/images/My_Hero_Academia/Mirko/SFW/Mirko_07.webp",
         "nsfw": false
       },
       {
-        "src": "images/My_Hero_Academia/Mirko/SFW/Mirko_08.webp",
+        "src": "/images/My_Hero_Academia/Mirko/SFW/Mirko_08.webp",
         "nsfw": false
       },
       {
-        "src": "images/My_Hero_Academia/Mirko/SFW/Mirko_09.webp",
+        "src": "/images/My_Hero_Academia/Mirko/SFW/Mirko_09.webp",
         "nsfw": false
       },
       {
-        "src": "images/My_Hero_Academia/Mirko/SFW/Mirko_10.webp",
+        "src": "/images/My_Hero_Academia/Mirko/SFW/Mirko_10.webp",
         "nsfw": false
       },
       {
-        "src": "images/My_Hero_Academia/Mirko/SFW/Mirko_11.webp",
+        "src": "/images/My_Hero_Academia/Mirko/SFW/Mirko_11.webp",
         "nsfw": false
       },
       {
-        "src": "images/My_Hero_Academia/Mirko/SFW/Mirko_12.webp",
+        "src": "/images/My_Hero_Academia/Mirko/SFW/Mirko_12.webp",
         "nsfw": false
       },
       {
-        "src": "images/My_Hero_Academia/Mirko/SFW/Mirko_13.webp",
+        "src": "/images/My_Hero_Academia/Mirko/SFW/Mirko_13.webp",
         "nsfw": false
       },
       {
-        "src": "images/My_Hero_Academia/Mirko/SFW/Mirko_14.webp",
+        "src": "/images/My_Hero_Academia/Mirko/SFW/Mirko_14.webp",
         "nsfw": false
       },
       {
-        "src": "images/My_Hero_Academia/Mirko/NSFW/Mirko_15.webp",
+        "src": "/images/My_Hero_Academia/Mirko/NSFW/Mirko_15.webp",
         "nsfw": true
       },
       {
-        "src": "images/My_Hero_Academia/Mirko/NSFW/Mirko_16.webp",
+        "src": "/images/My_Hero_Academia/Mirko/NSFW/Mirko_16.webp",
         "nsfw": true
       },
       {
-        "src": "images/My_Hero_Academia/Mirko/NSFW/Mirko_17.webp",
+        "src": "/images/My_Hero_Academia/Mirko/NSFW/Mirko_17.webp",
         "nsfw": true
       },
       {
-        "src": "images/My_Hero_Academia/Mirko/NSFW/Mirko_18.webp",
+        "src": "/images/My_Hero_Academia/Mirko/NSFW/Mirko_18.webp",
         "nsfw": true
       },
       {
-        "src": "images/My_Hero_Academia/Mirko/NSFW/Mirko_19.webp",
+        "src": "/images/My_Hero_Academia/Mirko/NSFW/Mirko_19.webp",
         "nsfw": true
       },
       {
-        "src": "images/My_Hero_Academia/Mirko/NSFW/Mirko_20.webp",
+        "src": "/images/My_Hero_Academia/Mirko/NSFW/Mirko_20.webp",
         "nsfw": true
       },
       {
-        "src": "images/My_Hero_Academia/Mirko/NSFW/Mirko_21.webp",
+        "src": "/images/My_Hero_Academia/Mirko/NSFW/Mirko_21.webp",
         "nsfw": true
       },
       {
-        "src": "images/My_Hero_Academia/Mirko/NSFW/Mirko_22.webp",
+        "src": "/images/My_Hero_Academia/Mirko/NSFW/Mirko_22.webp",
         "nsfw": true
       },
       {
-        "src": "images/My_Hero_Academia/Mirko/NSFW/Mirko_23.webp",
+        "src": "/images/My_Hero_Academia/Mirko/NSFW/Mirko_23.webp",
         "nsfw": true
       },
       {
-        "src": "images/My_Hero_Academia/Mirko/NSFW/Mirko_24.webp",
+        "src": "/images/My_Hero_Academia/Mirko/NSFW/Mirko_24.webp",
         "nsfw": true
       },
       {
-        "src": "images/My_Hero_Academia/Mirko/NSFW/Mirko_25.webp",
+        "src": "/images/My_Hero_Academia/Mirko/NSFW/Mirko_25.webp",
         "nsfw": true
       },
       {
-        "src": "images/My_Hero_Academia/Mirko/NSFW/Mirko_26.webp",
+        "src": "/images/My_Hero_Academia/Mirko/NSFW/Mirko_26.webp",
         "nsfw": true
       },
       {
-        "src": "images/My_Hero_Academia/Mirko/NSFW/Mirko_27.webp",
+        "src": "/images/My_Hero_Academia/Mirko/NSFW/Mirko_27.webp",
         "nsfw": true
       },
       {
-        "src": "images/My_Hero_Academia/Mirko/NSFW/Mirko_28.webp",
+        "src": "/images/My_Hero_Academia/Mirko/NSFW/Mirko_28.webp",
         "nsfw": true
       }
     ]
@@ -574,110 +620,109 @@
   {
     "name": "Hayase Nagatoro",
     "source": "Nagatoro",
-    "wiki": "",
     "images": [
       {
-        "src": "images/Nagatoro/Hayase_Nagatoro/SFW/Hayase_Nagatoro_00.webp",
+        "src": "/images/Nagatoro/Hayase_Nagatoro/SFW/Hayase_Nagatoro_00.webp",
         "nsfw": false
       },
       {
-        "src": "images/Nagatoro/Hayase_Nagatoro/SFW/Hayase_Nagatoro_01.webp",
+        "src": "/images/Nagatoro/Hayase_Nagatoro/SFW/Hayase_Nagatoro_01.webp",
         "nsfw": false
       },
       {
-        "src": "images/Nagatoro/Hayase_Nagatoro/SFW/Hayase_Nagatoro_02.webp",
+        "src": "/images/Nagatoro/Hayase_Nagatoro/SFW/Hayase_Nagatoro_02.webp",
         "nsfw": false
       },
       {
-        "src": "images/Nagatoro/Hayase_Nagatoro/SFW/Hayase_Nagatoro_03.webp",
+        "src": "/images/Nagatoro/Hayase_Nagatoro/SFW/Hayase_Nagatoro_03.webp",
         "nsfw": false
       },
       {
-        "src": "images/Nagatoro/Hayase_Nagatoro/SFW/Hayase_Nagatoro_04.webp",
+        "src": "/images/Nagatoro/Hayase_Nagatoro/SFW/Hayase_Nagatoro_04.webp",
         "nsfw": false
       },
       {
-        "src": "images/Nagatoro/Hayase_Nagatoro/SFW/Hayase_Nagatoro_05.webp",
+        "src": "/images/Nagatoro/Hayase_Nagatoro/SFW/Hayase_Nagatoro_05.webp",
         "nsfw": false
       },
       {
-        "src": "images/Nagatoro/Hayase_Nagatoro/SFW/Hayase_Nagatoro_06.webp",
+        "src": "/images/Nagatoro/Hayase_Nagatoro/SFW/Hayase_Nagatoro_06.webp",
         "nsfw": false
       },
       {
-        "src": "images/Nagatoro/Hayase_Nagatoro/SFW/Hayase_Nagatoro_07.webp",
+        "src": "/images/Nagatoro/Hayase_Nagatoro/SFW/Hayase_Nagatoro_07.webp",
         "nsfw": false
       },
       {
-        "src": "images/Nagatoro/Hayase_Nagatoro/SFW/Hayase_Nagatoro_08.webp",
+        "src": "/images/Nagatoro/Hayase_Nagatoro/SFW/Hayase_Nagatoro_08.webp",
         "nsfw": false
       },
       {
-        "src": "images/Nagatoro/Hayase_Nagatoro/SFW/Hayase_Nagatoro_09.webp",
+        "src": "/images/Nagatoro/Hayase_Nagatoro/SFW/Hayase_Nagatoro_09.webp",
         "nsfw": false
       },
       {
-        "src": "images/Nagatoro/Hayase_Nagatoro/NSFW/Hayase_Nagatoro_10.webp",
+        "src": "/images/Nagatoro/Hayase_Nagatoro/NSFW/Hayase_Nagatoro_10.webp",
         "nsfw": true
       },
       {
-        "src": "images/Nagatoro/Hayase_Nagatoro/NSFW/Hayase_Nagatoro_11.webp",
+        "src": "/images/Nagatoro/Hayase_Nagatoro/NSFW/Hayase_Nagatoro_11.webp",
         "nsfw": true
       },
       {
-        "src": "images/Nagatoro/Hayase_Nagatoro/NSFW/Hayase_Nagatoro_12.webp",
+        "src": "/images/Nagatoro/Hayase_Nagatoro/NSFW/Hayase_Nagatoro_12.webp",
         "nsfw": true
       },
       {
-        "src": "images/Nagatoro/Hayase_Nagatoro/NSFW/Hayase_Nagatoro_13.webp",
+        "src": "/images/Nagatoro/Hayase_Nagatoro/NSFW/Hayase_Nagatoro_13.webp",
         "nsfw": true
       },
       {
-        "src": "images/Nagatoro/Hayase_Nagatoro/NSFW/Hayase_Nagatoro_14.webp",
+        "src": "/images/Nagatoro/Hayase_Nagatoro/NSFW/Hayase_Nagatoro_14.webp",
         "nsfw": true
       },
       {
-        "src": "images/Nagatoro/Hayase_Nagatoro/NSFW/Hayase_Nagatoro_15.webp",
+        "src": "/images/Nagatoro/Hayase_Nagatoro/NSFW/Hayase_Nagatoro_15.webp",
         "nsfw": true
       },
       {
-        "src": "images/Nagatoro/Hayase_Nagatoro/NSFW/Hayase_Nagatoro_16.webp",
+        "src": "/images/Nagatoro/Hayase_Nagatoro/NSFW/Hayase_Nagatoro_16.webp",
         "nsfw": true
       },
       {
-        "src": "images/Nagatoro/Hayase_Nagatoro/NSFW/Hayase_Nagatoro_17.webp",
+        "src": "/images/Nagatoro/Hayase_Nagatoro/NSFW/Hayase_Nagatoro_17.webp",
         "nsfw": true
       },
       {
-        "src": "images/Nagatoro/Hayase_Nagatoro/NSFW/Hayase_Nagatoro_18.webp",
+        "src": "/images/Nagatoro/Hayase_Nagatoro/NSFW/Hayase_Nagatoro_18.webp",
         "nsfw": true
       },
       {
-        "src": "images/Nagatoro/Hayase_Nagatoro/NSFW/Hayase_Nagatoro_19.webp",
+        "src": "/images/Nagatoro/Hayase_Nagatoro/NSFW/Hayase_Nagatoro_19.webp",
         "nsfw": true
       },
       {
-        "src": "images/Nagatoro/Hayase_Nagatoro/NSFW/Hayase_Nagatoro_20.webp",
+        "src": "/images/Nagatoro/Hayase_Nagatoro/NSFW/Hayase_Nagatoro_20.webp",
         "nsfw": true
       },
       {
-        "src": "images/Nagatoro/Hayase_Nagatoro/NSFW/Hayase_Nagatoro_21.webp",
+        "src": "/images/Nagatoro/Hayase_Nagatoro/NSFW/Hayase_Nagatoro_21.webp",
         "nsfw": true
       },
       {
-        "src": "images/Nagatoro/Hayase_Nagatoro/NSFW/Hayase_Nagatoro_22.webp",
+        "src": "/images/Nagatoro/Hayase_Nagatoro/NSFW/Hayase_Nagatoro_22.webp",
         "nsfw": true
       },
       {
-        "src": "images/Nagatoro/Hayase_Nagatoro/NSFW/Hayase_Nagatoro_23.webp",
+        "src": "/images/Nagatoro/Hayase_Nagatoro/NSFW/Hayase_Nagatoro_23.webp",
         "nsfw": true
       },
       {
-        "src": "images/Nagatoro/Hayase_Nagatoro/NSFW/Hayase_Nagatoro_24.webp",
+        "src": "/images/Nagatoro/Hayase_Nagatoro/NSFW/Hayase_Nagatoro_24.webp",
         "nsfw": true
       },
       {
-        "src": "images/Nagatoro/Hayase_Nagatoro/NSFW/Hayase_Nagatoro_25.webp",
+        "src": "/images/Nagatoro/Hayase_Nagatoro/NSFW/Hayase_Nagatoro_25.webp",
         "nsfw": true
       }
     ]
