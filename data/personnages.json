@@ -100,7 +100,12 @@
     "name": "Sylveon",
     "source": "Pokémon",
     "wiki": "https://fr.wikipedia.org/wiki/Nymphali",
-    "images": []
+    "images": [
+      {
+        "src": "images/Pokemon/Sylveon/SFW/Sylveon_00.webp",
+        "nsfw": false
+      }
+    ]
   },
   {
     "name": "Vulpix",
