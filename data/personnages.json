@@ -157,7 +157,12 @@
     "name": "Kafka",
     "source": "Honkai: Star Rail",
     "wiki": "https://fr.wikipedia.org/wiki/Honkai:_Star_Rail",
-    "images": []
+    "images": [
+      {
+        "src": "images/Honkai_Star_Rail/Kafka/SFW/Kafka_00.webp",
+        "nsfw": false
+      }
+    ]
   },
   {
     "name": "Aqua",
