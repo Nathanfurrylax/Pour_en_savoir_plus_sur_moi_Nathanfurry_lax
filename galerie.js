@@ -1,4 +1,3 @@
-
 /* galerie.js — construit la section Personnages depuis data/*.json,
    puis active le slider, la grille, le flou NSFW et la vue en grand. */
 (() => {
